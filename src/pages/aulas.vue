@@ -1,9 +1,4 @@
 <template>
-    <Head>
-        <Title>
-            Gpf.ev - {{ name }}
-        </Title>
-    </Head>
     <div>
         <h1>Aulas:</h1>
         <ul>
@@ -59,5 +54,13 @@ export default {
     created() {
         this.aulas();
     },
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                document.title = to.meta.title || 'TI for All - Aulas';
+            }
+        },
+    }
 };
 </script>
