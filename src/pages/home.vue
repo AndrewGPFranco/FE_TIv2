@@ -3,6 +3,7 @@
         <Navbar />
     </header>
     <div>
+        <Categorias />
         <p>home</p>
         <router-link to="/aulas">
             Aulas
@@ -16,6 +17,7 @@
 <script lang="ts">
 import Navbar from "../components/Global/Navbar.vue";
 import Rodape from "../components/Global/Rodape.vue";
+import Categorias from "../components/Inicio/Categorias.vue";
 
 export default {
     data() {
@@ -24,7 +26,7 @@ export default {
         }
     },
     components: {
-        Navbar, Rodape
+        Navbar, Rodape, Categorias
     }
 }
 </script>

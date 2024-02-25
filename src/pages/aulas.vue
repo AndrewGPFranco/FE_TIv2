@@ -3,6 +3,7 @@
         <Navbar />
     </header>
     <div>
+        <Categorias />
         <h1>Aulas:</h1>
         <ul>
             <li v-for="aula in dados" :key="aula.id">
@@ -32,6 +33,7 @@ interface Aula {
 import axios from "axios";
 import Navbar from "../components/Global/Navbar.vue";
 import Rodape from "../components/Global/Rodape.vue";
+import Categorias from "../components/Inicio/Categorias.vue";
 
 export default {
     data() {
@@ -71,6 +73,6 @@ export default {
             }
         },
     },
-    components: { Navbar, Rodape }
+    components: { Navbar, Rodape, Categorias }
 };
 </script>
