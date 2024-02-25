@@ -6,10 +6,10 @@
             </h1>
         </div>
         <div class="container-links">
-            <router-link to="/roadmap">
+            <router-link to="/roadmap" v-if="logado">
                 Roadmap
             </router-link>
-            <router-link to="/cursos">
+            <router-link to="/cursos" v-if="logado">
                 Cursos
             </router-link>
             <router-link to="/login" v-if="!logado">
@@ -17,6 +17,9 @@
             </router-link>
             <button v-if="!logado">
                 <router-link to="matricula">Matricule-Se</router-link>
+            </button>
+            <button v-if="logado" @click="sairDaConta">
+                Sair
             </button>
         </div>
     </nav>
@@ -35,6 +38,10 @@ export default {
             if(token) {
                 this.logado = !this.logado;
             }
+        },
+        sairDaConta() {
+            localStorage.removeItem("Token");
+            this.$router.push({ name: "login" });
         }
     },
     created() {
