@@ -12,15 +12,36 @@
             <router-link to="/cursos">
                 Cursos
             </router-link>
-            <router-link to="/login">
+            <router-link to="/login" v-if="!logado">
                 Entrar
             </router-link>
-            <button>
+            <button v-if="!logado">
                 <router-link to="matricula">Matricule-Se</router-link>
             </button>
         </div>
     </nav>
 </template>
+
+<script lang="ts">
+export default {
+    data() {
+        return {
+            logado: false
+        }
+    },
+    methods: {
+        verificarToken() {
+            const token = localStorage.getItem("Token");
+            if(token) {
+                this.logado = !this.logado;
+            }
+        }
+    },
+    created() {
+        this.verificarToken();
+    },
+}
+</script>
 
 <style scoped>
 nav {
