@@ -2,24 +2,24 @@
     <nav>
         <div class="container-titulo">
             <h1>
-                <router-link to="/">TI-FREE</router-link>
+                <router-link to="/">Dev <span>Livre</span></router-link>
             </h1>
         </div>
         <div class="container-links">
             <router-link to="/roadmap" v-if="logado">
-                Roadmap
+                ROADMAP
             </router-link>
             <router-link to="/cursos" v-if="logado">
-                Cursos
+                CURSOS
             </router-link>
             <router-link to="/login" v-if="!logado">
-                Entrar
+                ENTRAR
             </router-link>
             <button v-if="!logado">
                 <router-link to="matricula">Matricule-Se</router-link>
             </button>
             <button v-if="logado" @click="sairDaConta">
-                Sair
+                SAIR
             </button>
         </div>
     </nav>
@@ -79,13 +79,13 @@ nav {
 }
 
 .container-links a {
-    color: white;
+    color: rgb(175, 175, 175);
     padding: 10px;
+    font-weight: 800;
 }
 
 .container-links a:hover {
-    background-color: gray;
-    border-radius: 10px;
+    color: aqua;
 }
 
 .container-links button {
@@ -100,9 +100,24 @@ nav {
 
 .container-links button a {
     color: black;
+    font-weight: 800;
 }
 
 .container-links button a:hover {
     background-color: transparent;
+}
+
+
+.container-links button {
+    font-weight: 800;
+}
+
+.container-links button:hover {
+    color: aqua;
+    background-color: rgb(0, 80, 53);
+}
+
+span {
+    color: aqua;
 }
 </style>

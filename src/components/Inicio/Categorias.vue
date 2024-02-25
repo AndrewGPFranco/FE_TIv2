@@ -34,10 +34,12 @@
 .container p {
     padding: 10px;
     cursor: pointer;
+    font-weight: 800;
+    font-family: 'Roboto',sans-serif;
+    color: rgb(175, 175, 175);
 }
 
 .container p:hover {
-    background-color: rgb(85, 85, 85);
-    border-radius: 10px;
+    color: aqua;
 }
 </style>
