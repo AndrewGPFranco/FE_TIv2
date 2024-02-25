@@ -1,4 +1,7 @@
 <template>
+    <header>
+        <Navbar />
+    </header>
     <main>
         <h1>Login</h1>
         <form @submit.prevent="efetuarLogin">
@@ -9,10 +12,15 @@
             <button type="submit">Login</button>
         </form>
     </main>
+    <footer>
+        <Rodape />
+    </footer>
 </template>
 
 <script lang="ts">
 import axios from "axios"
+import Navbar from "../components/Global/Navbar.vue"
+import Rodape from "../components/Global/Rodape.vue";
 
 export default {
     data() {
@@ -20,26 +28,23 @@ export default {
             login: "",
             senha: "",
             name: "Login"
-        }
+        };
     },
     methods: {
         efetuarLogin() {
             const dados = {
                 login: this.login,
                 senha: this.senha
-            }
-
+            };
             axios.post("http://localhost:8080/api/login", dados)
                 .then((response) => {
-                    const Token = response.data.token;
-
-                    localStorage.setItem('Token', Token);
-
-                    this.$router.push({ name: "aulas" });
-                })
+                const Token = response.data.token;
+                localStorage.setItem('Token', Token);
+                this.$router.push({ name: "aulas" });
+            })
                 .catch((error) => {
-                    console.log(error);
-                })
+                console.log(error);
+            });
         }
     },
     watch: {
@@ -49,6 +54,7 @@ export default {
                 document.title = to.meta.title || 'TI for All - Login';
             }
         },
-    }
+    },
+    components: { Navbar, Rodape }
 }
 </script>

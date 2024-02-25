@@ -1,4 +1,7 @@
 <template>
+    <header>
+        <Navbar />
+    </header>
     <div>
         <h1>Aulas:</h1>
         <ul>
@@ -11,6 +14,9 @@
             </li>
         </ul>
     </div>
+    <footer>
+        <Rodape />
+    </footer>
 </template>
 
 <script lang="ts">
@@ -24,6 +30,8 @@ interface Aula {
 }
 
 import axios from "axios";
+import Navbar from "../components/Global/Navbar.vue";
+import Rodape from "../components/Global/Rodape.vue";
 
 export default {
     data() {
@@ -40,15 +48,16 @@ export default {
             };
             axios.get("http://localhost:8080/api/dados/aulas", { headers })
                 .then((response) => {
-                    if (response.status === 200) {
-                        this.dados = response.data['Aulas Encontradas: '];
-                    } else {
-                        console.error('Erro na requisição:', response.status);
-                    }
-                })
+                if (response.status === 200) {
+                    this.dados = response.data['Aulas Encontradas: '];
+                }
+                else {
+                    console.error('Erro na requisição:', response.status);
+                }
+            })
                 .catch((error) => {
-                    console.error('Erro ao obter dados:', error);
-                });
+                console.error('Erro ao obter dados:', error);
+            });
         },
     },
     created() {
@@ -61,6 +70,7 @@ export default {
                 document.title = to.meta.title || 'TI for All - Aulas';
             }
         },
-    }
+    },
+    components: { Navbar, Rodape }
 };
 </script>
