@@ -1,7 +1,7 @@
 <template>
     <footer>
         <p>
-            Todos direitos reservados a GPS Company!
+            &copy; Todos direitos reservados a GPS Company!
         </p>
     </footer>
 </template>

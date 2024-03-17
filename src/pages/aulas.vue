@@ -5,15 +5,28 @@
     <div>
         <Categorias />
         <h1>Aulas:</h1>
-        <ul>
-            <li v-for="aula in dados" :key="aula.id">
-                <h2>{{ aula.titulo }}</h2>
-                <p>{{ aula.descricao }}</p>
-                <p>Duração: {{ aula.duracao }} minutos</p>
-                <p>Status: {{ aula.status }}</p>
-                <img :src="aula.imagem" alt="Imagem da aula">
-            </li>
-        </ul>
+        <div class="containerAula">
+            <ul v-for="aula in dados" :key="aula.id">
+                <li>
+                    <h2>{{ aula.titulo }}</h2>
+                </li>
+                <li>
+                    <p>{{ aula.descricao }}</p>
+                </li>
+                <li>
+                    <p>Duração: {{ aula.duracao }} minutos</p>
+                </li>
+                <li>
+                    <p>Status: {{ aula.status }}</p>
+                </li>
+                <li>
+                    <img :src="aula.imagem" alt="Imagem da aula">
+                </li>
+                <li>
+                    <iframe :src="aula.url"></iframe>
+                </li>
+            </ul>
+        </div>
     </div>
     <footer>
         <Rodape />
@@ -28,6 +41,7 @@ interface Aula {
     duracao: number;
     imagem: string,
     status: boolean;
+    url: string;
 }
 
 import axios from "axios";
@@ -50,16 +64,16 @@ export default {
             };
             axios.get("http://localhost:8080/api/dados/aulas", { headers })
                 .then((response) => {
-                if (response.status === 200) {
-                    this.dados = response.data['Aulas Encontradas: '];
-                }
-                else {
-                    console.error('Erro na requisição:', response.status);
-                }
-            })
+                    if (response.status === 200) {
+                        this.dados = response.data['Aulas Encontradas: '];
+                    }
+                    else {
+                        console.error('Erro na requisição:', response.status);
+                    }
+                })
                 .catch((error) => {
-                console.error('Erro ao obter dados:', error);
-            });
+                    console.error('Erro ao obter dados:', error);
+                });
         },
     },
     created() {
@@ -76,3 +90,10 @@ export default {
     components: { Navbar, Rodape, Categorias }
 };
 </script>
+
+<style scoped>
+.containerAula ul {
+    display: flex;
+    flex-direction: column;
+}
+</style>
