@@ -40,7 +40,7 @@ export default {
                 .then((response) => {
                 const Token = response.data.token;
                 localStorage.setItem('Token', Token);
-                this.$router.push({ name: "aulas" });
+                this.$router.push({ name: "home" });
             })
                 .catch((error) => {
                 console.log(error);

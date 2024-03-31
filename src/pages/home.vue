@@ -5,9 +5,6 @@
     <div>
         <Categorias />
         <p>home</p>
-        <router-link to="/aulas">
-            Aulas
-        </router-link>
     </div>
     <footer>
         <Rodape />

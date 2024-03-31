@@ -1,23 +1,67 @@
 <template>
     <div class="container">
-        <p>HTML</p>
-        <p>CSS</p>
-        <p>VUE</p>
-        <p>NUXT</p>
-        <p>REACT</p>
-        <p>JAVA</p>
-        <p>SPRING</p>
-        <p>PHP</p>
-        <p>LARAVEL</p>
-        <p>NODE</p>
-        <p>EXPRESS</p>
+        <p>
+            <router-link to="/aulas/HTML">
+                HTML
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/CSS">
+                CSS
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/Vue">
+                VUE
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/NUXT">
+                NUXT
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/REACT">
+                REACT
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/JAVA">
+                JAVA
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/SPRING">
+                SPRING
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/PHP">
+                PHP
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/LARAVEL">
+                LARAVEL
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/NODE">
+                NODE
+            </router-link>
+        </p>
+        <p>
+            <router-link to="/aulas/EXPRESS">
+                EXPRESS
+            </router-link>
+        </p>
     </div>
 </template>
 
 <script lang="ts">
-    export default {
-        name: "Categorias"
-    }
+export default {
+    name: "Categorias"
+}
 </script>
 
 <style scoped>
@@ -31,15 +75,15 @@
     font-weight: 400;
 }
 
-.container p {
+.container a {
     padding: 10px;
     cursor: pointer;
     font-weight: 800;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: rgb(175, 175, 175);
 }
 
-.container p:hover {
+.container a:hover {
     color: aqua;
 }
 </style>

@@ -22,7 +22,7 @@ const router = createRouter({
       meta: { requiresAuth: false },
     },
     {
-      path: "/aulas",
+      path: "/aulas/:tech",
       name: "aulas",
       component: aulasVue,
       meta: { requiresAuth: true },
