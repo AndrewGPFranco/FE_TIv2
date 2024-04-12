@@ -1,57 +1,57 @@
 <template>
     <div class="container">
         <p>
-            <router-link to="/aulas/HTML">
+            <router-link to="/aulas">
                 HTML
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/CSS">
+            <router-link to="/aulas">
                 CSS
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/Vue">
+            <router-link to="/aulas">
                 VUE
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/NUXT">
+            <router-link to="/aulas">
                 NUXT
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/REACT">
+            <router-link to="/aulas">
                 REACT
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/JAVA">
+            <router-link to="/aulas">
                 JAVA
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/SPRING">
+            <router-link to="/aulas">
                 SPRING
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/PHP">
+            <router-link to="/aulas">
                 PHP
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/LARAVEL">
+            <router-link to="/aulas">
                 LARAVEL
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/NODE">
+            <router-link to="/aulas">
                 NODE
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/EXPRESS">
+            <router-link to="/aulas">
                 EXPRESS
             </router-link>
         </p>
