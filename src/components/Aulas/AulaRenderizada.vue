@@ -94,6 +94,13 @@ export default {
                     this.aulas();
                 }
             }
+        },
+        $route: {
+            immediate: true,
+            handler(to) {
+                const tech = this.$route.params.tech;
+                document.title = to.meta.title || 'TI for All - Aulas de ' + tech;
+            }
         }
     },
     components: { Navbar, Rodape, Categorias }
