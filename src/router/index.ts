@@ -5,6 +5,7 @@ import loginVue from "../pages/login.vue";
 import roadmapVue from "../pages/roadmap.vue";
 import cursosVue from "../pages/cursos.vue";
 import matriculaVue from "../pages/matricula.vue";
+import CadastrarAula from "../pages/cadastrarAula.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,12 @@ const router = createRouter({
       path: "/matricula",
       name: "matricula",
       component: matriculaVue,
+      meta: { requiresAuth: false },
+    },
+    {
+      path: "/admin/cadastro/aula",
+      name: "cadastrarAula",
+      component: CadastrarAula,
       meta: { requiresAuth: false },
     }
   ],
