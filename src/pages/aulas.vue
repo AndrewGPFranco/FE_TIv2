@@ -62,11 +62,13 @@ export default {
             const headers = {
                 'Authorization': `Bearer ${token}`,
             };
-            axios.get("http://localhost:8080/api/dados/aulas", { headers })
+            const tech = this.$route.params.tech;
+            axios.get("http://localhost:8080/api/aulas/tecnologia/" + tech, { headers })
                 .then((response) => {
                     if (response.status === 200) {
-                        this.dados = response.data["Aulas Encontradas: "];
-                        console.log(response.data);
+                        this.dados = response.data;
+                        //this.dados = response.data["Aulas Encontradas: "];
+                        //console.log(response.data);
                     }
                     else {
                         console.error('Erro na requisição:', response.status);
@@ -75,10 +77,18 @@ export default {
                 .catch((error) => {
                     console.error('Erro ao obter dados:', error);
                 });
+        },
+        destroy() {
+            this.dados = []; 
         }
     },
     created() {
         this.aulas();
+    },
+    beforeRouteUpdate(to, from, next) {
+        this.destroy();
+        this.aulas()
+        next();
     },
     watch: {
         $route: {
