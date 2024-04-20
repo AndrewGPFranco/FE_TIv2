@@ -6,6 +6,9 @@
             </h1>
         </div>
         <div class="container-links">
+            <router-link to="/admin/cadastro/aula" v-if="logado">
+                CADASTRAR AULA
+            </router-link>
             <router-link to="/roadmap" v-if="logado">
                 ROADMAP
             </router-link>
@@ -46,7 +49,7 @@ export default {
     },
     created() {
         this.verificarToken();
-    },
+    }
 }
 </script>
 

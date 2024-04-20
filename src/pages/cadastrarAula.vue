@@ -1,5 +1,6 @@
 <template>
     <section>
+        <Navbar />
         <h1>Cadastre uma Aula:</h1>
         <form @submit.prevent="submit">
             <div>
@@ -52,11 +53,14 @@
                 <button type="submit">Cadastrar</button>
             </div>
         </form>
+        <Rodape />
     </section>
 </template>
 
 <script>
 import axios from 'axios';
+import Navbar from "../components/Global/Navbar.vue"
+import Rodape from "../components/Global/Rodape.vue"
 
 export default {
     name: "cadastrarAula",
@@ -114,6 +118,7 @@ export default {
                     console.log("Ocorreu um erro", error)
                 })
         }
-    }
+    },
+    components: { Navbar, Rodape }
 }
 </script>

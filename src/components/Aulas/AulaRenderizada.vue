@@ -4,7 +4,9 @@
         <Categorias />
     </header>
     <div class="container">
-        <h1>Aulas:</h1>
+        <div class="titulo">
+            <h1>Aulas disponiveis</h1>
+        </div>
         <div class="containerAula">
             <div class="cardAula" v-for="aula in dados" :key="aula.id">
                 <div>
@@ -91,6 +93,14 @@ export default {
 </script>
 
 <style scoped>
+.titulo {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+}
+
 .container {
     background-color: #0B0B0B;
 }
