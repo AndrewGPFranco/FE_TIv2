@@ -117,8 +117,32 @@ export default {
                 .catch((error) => {
                     console.log("Ocorreu um erro", error)
                 })
+        },
+        isAdmin() {
+            const token = localStorage.getItem("Token");
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+
+            axios.get("http://localhost:8080" + "/api/login/user?login=andrew@gmail.com", { headers })
+                .then((response) => {
+                    if (response.data.admin === true) {
+                        this.admin = true;
+                    } else {
+                        this.$router.push('/')
+                    }
+                })
+                .catch((error) => {
+                    console.error('Erro ao obter dados:', error);
+                });
         }
     },
-    components: { Navbar, Rodape }
+    components: {
+        Navbar,
+        Rodape
+    },
+    created() {
+        this.isAdmin();
+    }
 }
 </script>
