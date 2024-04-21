@@ -1,31 +1,19 @@
 <template>
     <header>
         <Navbar />
-    </header>
-    <div>
         <Categorias />
-        <h1>Aulas:</h1>
+    </header>
+    <div class="container">
+        <div class="titulo">
+            <h1>Aulas disponiveis</h1>
+        </div>
         <div class="containerAula">
-            <ul v-for="aula in dados" :key="aula.id">
-                <li>
-                    <h2>{{ aula.titulo }}</h2>
-                </li>
-                <li>
-                    <p>{{ aula.descricao }}</p>
-                </li>
-                <li>
-                    <p>Duração: {{ aula.duracao }} minutos</p>
-                </li>
-                <li>
-                    <p>Status: {{ aula.status }}</p>
-                </li>
-                <li>
-                    <img :src="aula.imagem" alt="Imagem da aula">
-                </li>
-                <li>
-                    <iframe :src="aula.url"></iframe>
-                </li>
-            </ul>
+            <div class="cardAula" v-for="aula in dados" :key="aula.id">
+                <div>
+                    <p>{{ aula.titulo }}</p>
+                    <img :src="aula.imagem" alt="Thumbnail da Aula">
+                </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -42,6 +30,7 @@ interface Aula {
     imagem: string,
     status: boolean;
     url: string;
+    categoria: string;
 }
 
 import axios from "axios";
@@ -104,8 +93,49 @@ export default {
 </script>
 
 <style scoped>
-.containerAula ul {
+.titulo {
     display: flex;
-    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+}
+
+.container {
+    background-color: #0B0B0B;
+}
+
+.containerAula {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cardAula {
+    background-color: #BDFDFC;
+    padding: 20px;
+    border: 3px solid rgb(255, 2, 44);
+    margin: 10px;
+    width: 400px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.cardAula p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.cardAula img {
+    margin-bottom: 10px;
+    width: 320px;
+    height: 170px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
 }
 </style>

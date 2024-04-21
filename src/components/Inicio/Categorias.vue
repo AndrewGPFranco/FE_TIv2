@@ -31,28 +31,13 @@
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/spring">
-                SPRING
-            </router-link>
-        </p>
-        <p>
             <router-link to="/aulas/php">
                 PHP
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/laravel">
-                LARAVEL
-            </router-link>
-        </p>
-        <p>
             <router-link to="/aulas/node">
                 NODE
-            </router-link>
-        </p>
-        <p>
-            <router-link to="/aulas/express">
-                EXPRESS
             </router-link>
         </p>
     </div>

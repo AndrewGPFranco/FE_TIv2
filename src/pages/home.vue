@@ -10,7 +10,7 @@
         <Rodape />
     </footer>
 </template>
-  
+
 <script lang="ts">
 import Navbar from "../components/Global/Navbar.vue";
 import Rodape from "../components/Global/Rodape.vue";
@@ -24,6 +24,25 @@ export default {
     },
     components: {
         Navbar, Rodape, Categorias
-    }
+    },
+    methods: {
+        verificaAutenticacao() {
+            const token = localStorage.getItem("Token");
+            if (!token) {
+                this.$router.push('/login')
+            }
+        }
+    },
+    created() {
+        this.verificaAutenticacao();
+    },
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                this.verificaAutenticacao();
+            },
+        },
+    },
 }
 </script>

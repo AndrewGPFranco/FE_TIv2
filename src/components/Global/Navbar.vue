@@ -6,6 +6,9 @@
             </h1>
         </div>
         <div class="container-links">
+            <router-link to="/admin/cadastro/aula" v-if="logado">
+                CADASTRAR AULA
+            </router-link>
             <router-link to="/roadmap" v-if="logado">
                 ROADMAP
             </router-link>
@@ -26,27 +29,46 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 export default {
     data() {
         return {
-            logado: false
+            logado: false,
+            admin: false
         }
     },
     methods: {
         verificarToken() {
             const token = localStorage.getItem("Token");
-            if(token) {
+            if (token) {
                 this.logado = !this.logado;
             }
         },
         sairDaConta() {
             localStorage.removeItem("Token");
             this.$router.push({ name: "login" });
+        },
+        isAdmin() {
+            const token = localStorage.getItem("Token");
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+
+            axios.get("http://localhost:8080" + "/api/login/user?login=andrew@gmail.com", { headers })
+                .then((response) => {
+                    if (response.data.admin === true) {
+                        this.admin = true;
+                    }
+                })
+                .catch((error) => {
+                    console.error('Erro ao obter dados:', error);
+                });
         }
     },
     created() {
         this.verificarToken();
-    },
+        this.isAdmin();
+    }
 }
 </script>
 
