@@ -39,7 +39,7 @@ export default {
     watch: {
         $route: {
             immediate: true,
-            handler(to) {
+            handler() {
                 this.verificaAutenticacao();
             },
         },
