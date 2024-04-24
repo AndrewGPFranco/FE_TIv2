@@ -1,58 +1,73 @@
 <template>
     <section>
         <Navbar />
-        <h1>Cadastre uma Aula:</h1>
-        <form @submit.prevent="submit">
-            <div>
-                <label for="titulo">Título</label>
-                <input type="text" name="titulo" v-model="titulo" required autocomplete="off"
-                    placeholder="Digite o título da aula...">
+        <main class="container">
+            <div class="containerTitle">
+                <span class="title">Cadastre uma Aula</span>
             </div>
-            <div>
-                <label for="descricao">Descrição</label>
-                <input type="text" name="descricao" v-model="descricao" required autocomplete="off"
-                    placeholder="Digite a descrição da aula...">
+            <div class="containerCardForm">
+                <img class="imageContainer" src="../assets/image.jpg" alt="ImagemTeste">
+                <form @submit.prevent="submit" class="form">
+                    <div class="formContainer">
+                        <div>
+                            <div>
+                                <label class="label" for="titulo">Título</label>
+                                <input class="input" type="text" name="titulo" v-model="titulo" required
+                                    autocomplete="off" placeholder="Digite o título da aula...">
+                            </div>
+                            <div>
+                                <label class="label" for="descricao">Descrição</label>
+                                <input class="input" type="text" name="descricao" v-model="descricao" required
+                                    autocomplete="off" placeholder="Digite a descrição da aula...">
+                            </div>
+                            <div>
+                                <label class="label" for="cadastro">Data de Cadastro</label>
+                                <input class="input" type="date" name="cadastro" v-model="cadastro" required>
+                            </div>
+                            <div>
+                                <label class="label" for="duracao">Duração</label>
+                                <input class="input" type="number" name="duracao" v-model="duracao" required
+                                    autocomplete="off" placeholder="Digite a duração da aula...">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label class="label" for="status">Status</label>
+                                <select class="select" name="status" v-model="status" required>
+                                    <option value="true">Ativo</option>
+                                    <option value="false">Inativo</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="label" for="imagem">Imagem</label>
+                                <input class="input" type="text" name="imagem" v-model="imagem" required
+                                    autocomplete="off" placeholder="Digite o link da imagem da aula...">
+                            </div>
+                            <div>
+                                <label class="label" for="url">URL</label>
+                                <input class="input" type="text" name="url" v-model="url" required autocomplete="off"
+                                    placeholder="Digite o link da aula...">
+                            </div>
+                            <div>
+                                <label class="label" for="tech">Tecnologia</label>
+                                <input class="input" type="text" name="tech" v-model="tech" required autocomplete="off"
+                                    placeholder="Digite a tecnologia da aula...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containerButton">
+                        <div>
+                            <label class="label" id="labelCategoria" for="categoria">Categoria</label>
+                            <input class="input" type="text" name="categoria" v-model="categoria" required
+                                autocomplete="off" placeholder="Digite a categoria da aula...">
+                        </div>
+                        <div>
+                            <button class="submit" type="submit">Cadastrar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label for="cadastro">Data de Cadastro</label>
-                <input type="date" name="cadastro" v-model="cadastro" required>
-            </div>
-            <div>
-                <label for="duracao">Duração</label>
-                <input type="number" name="duracao" v-model="duracao" required autocomplete="off"
-                    placeholder="Digite a duração da aula...">
-            </div>
-            <div>
-                <label for="status">Status</label>
-                <select name="status" v-model="status" required>
-                    <option value="true">Ativo</option>
-                    <option value="false">Inativo</option>
-                </select>
-            </div>
-            <div>
-                <label for="imagem">Imagem</label>
-                <input type="text" name="imagem" v-model="imagem" required autocomplete="off"
-                    placeholder="Digite o link da imagem da aula...">
-            </div>
-            <div>
-                <label for="url">URL</label>
-                <input type="text" name="url" v-model="url" required autocomplete="off"
-                    placeholder="Digite o link da aula...">
-            </div>
-            <div>
-                <label for="tech">Tecnologia</label>
-                <input type="text" name="tech" v-model="tech" required autocomplete="off"
-                    placeholder="Digite a tecnologia da aula...">
-            </div>
-            <div>
-                <label for="categoria">Categoria</label>
-                <input type="text" name="categoria" v-model="categoria" required autocomplete="off"
-                    placeholder="Digite a categoria da aula...">
-            </div>
-            <div>
-                <button type="submit">Cadastrar</button>
-            </div>
-        </form>
+        </main>
         <Rodape />
     </section>
 </template>
@@ -101,7 +116,7 @@ export default {
                 'Authorization': `Bearer ${token}`,
             };
 
-            axios.post("http://localhost:8080/api/cadastro/aula", dados,  { headers })
+            axios.post("http://localhost:8080/api/cadastro/aula", dados, { headers })
                 .then((response) => {
                     console.log("Aula cadastrada com sucesso!", response);
                     this.titulo = '';
@@ -146,3 +161,111 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.form {
+    max-width: 650px;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.input,
+.select {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 6px;
+}
+
+
+.input:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #cbd5e0;
+}
+
+.input:valid {
+    border: 1px solid green;
+}
+
+.input:invalid {
+    border: 1px solid rgba(14, 14, 14, 0.205);
+}
+
+.submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+.input:focus,
+.select:focus {
+    border-color: #007bff;
+}
+
+.container {
+    padding: 30px;
+    background-color: #0B0B0B;
+}
+
+.containerTitle {
+    text-align: center;
+    padding: 20px;
+}
+
+.formContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.containerButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerCardForm {
+    display: flex;
+    justify-content: center;
+}
+
+.imageContainer {
+    width: 500px;
+    height: 544.4px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+</style>

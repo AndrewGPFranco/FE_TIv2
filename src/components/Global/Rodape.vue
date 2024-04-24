@@ -10,11 +10,8 @@
     footer {
         display: flex;
         justify-content: center;
-        background-color: #01080E;
+        background: linear-gradient(to top, #01080E, #0B0B0B);
         padding: 10px;
         color: white;
-        bottom: 0;
-        position: fixed;
-        width: 100vw;
     }
 </style>
