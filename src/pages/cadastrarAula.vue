@@ -12,8 +12,8 @@
                         <div>
                             <div>
                                 <label class="label" for="titulo">Título</label>
-                                <input class="input" type="text" name="titulo" v-model="titulo" required autocomplete="off"
-                                    placeholder="Digite o título da aula...">
+                                <input class="input" type="text" name="titulo" v-model="titulo" required
+                                    autocomplete="off" placeholder="Digite o título da aula...">
                             </div>
                             <div>
                                 <label class="label" for="descricao">Descrição</label>
@@ -40,8 +40,8 @@
                             </div>
                             <div>
                                 <label class="label" for="imagem">Imagem</label>
-                                <input class="input" type="text" name="imagem" v-model="imagem" required autocomplete="off"
-                                    placeholder="Digite o link da imagem da aula...">
+                                <input class="input" type="text" name="imagem" v-model="imagem" required
+                                    autocomplete="off" placeholder="Digite o link da imagem da aula...">
                             </div>
                             <div>
                                 <label class="label" for="url">URL</label>

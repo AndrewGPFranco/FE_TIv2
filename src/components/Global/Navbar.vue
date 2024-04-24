@@ -77,7 +77,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
-    background-color: #01080E;
+    background: linear-gradient(to bottom, #01080E, #0B0B0B);
     color: white;
     align-items: center;
 }
