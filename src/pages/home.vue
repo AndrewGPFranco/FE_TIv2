@@ -4,7 +4,6 @@
     </header>
     <div>
         <Categorias />
-        <p>home</p>
     </div>
     <footer>
         <Rodape />

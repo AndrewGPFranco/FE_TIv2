@@ -89,7 +89,8 @@ export default {
             imagem: "",
             url: "",
             tech: "",
-            categoria: ""
+            categoria: "",
+            status: 'true',
         }
     },
     methods: {
