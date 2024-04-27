@@ -65,7 +65,6 @@
     }
 
     menu {
-        width: 25%;
         height: 100vh;
         background-color: #050017;
         color: white;
