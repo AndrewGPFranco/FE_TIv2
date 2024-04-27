@@ -1,19 +1,11 @@
 <template>
-    <header>
-        <Navbar />
-    </header>
-    <div>
-        <Categorias />
-    </div>
-    <footer>
-        <Rodape />
-    </footer>
+    <main>
+        <Menu />
+    </main>
 </template>
 
 <script lang="ts">
-import Navbar from "../components/Global/Navbar.vue";
-import Rodape from "../components/Global/Rodape.vue";
-import Categorias from "../components/Inicio/Categorias.vue";
+import Menu from '../components/Home/Menu.vue';
 
 export default {
     data() {
@@ -22,7 +14,7 @@ export default {
         }
     },
     components: {
-        Navbar, Rodape, Categorias
+        Menu
     },
     methods: {
         verificaAutenticacao() {

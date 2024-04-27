@@ -22,3 +22,9 @@ button {
   background-color: transparent;
   border: none;
 }
+
+.linhaDivisoria {
+  height: 2px;
+  background-color: gray;
+  margin: auto;
+}
