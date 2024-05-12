@@ -3,7 +3,6 @@
         <Navbar />
     </header>
     <main>
-        <h1>Login</h1>
         <form @submit.prevent="efetuarLogin">
             <label for="login">login</label>
             <input type="text" name="login" id="login" v-model="login">

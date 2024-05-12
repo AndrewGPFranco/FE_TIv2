@@ -1,7 +1,9 @@
 <template>
     <menu>
         <div class="logoSite">
-            <h1>Dev<span class="titulo">FREE</span></h1>
+            <router-link to="/roadmap">
+                <h1>Dev<span class="titulo">FREE</span></h1>
+            </router-link>
         </div>
         <div class="menuOpcoes">
             <ul>
@@ -53,7 +55,7 @@
 
     .logoSite {
         text-align: center;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
     .logoSite h1 {
@@ -81,7 +83,7 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        padding: 40px;
+        padding: 30px;
     }
 
     ul li {

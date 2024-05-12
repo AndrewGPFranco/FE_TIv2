@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div class="container-links">
-            <router-link to="/admin/cadastro/aula" v-if="logado">
+            <router-link to="/admin/cadastro/aula" v-if="admin">
                 CADASTRAR AULA
             </router-link>
             <router-link to="/roadmap" v-if="logado">
@@ -29,45 +29,46 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
+import { onMounted, ref } from 'vue';
+import { useUsersStore } from '../../store/users';
+import { useRouter } from 'vue-router';
+
 export default {
-    data() {
-        return {
-            logado: false,
-            admin: false
-        }
-    },
-    methods: {
-        verificarToken() {
+    setup() {
+        const router = useRouter();
+        const usersStore = useUsersStore();
+        const logado = ref(false);
+        const admin = ref(false);
+
+        onMounted(() => {
+            isAdmin();
+        })
+
+        const verificarToken = () => {
             const token = localStorage.getItem("Token");
             if (token) {
-                this.logado = !this.logado;
+                logado.value = true;
             }
-        },
-        sairDaConta() {
-            localStorage.removeItem("Token");
-            this.$router.push({ name: "login" });
-        },
-        isAdmin() {
-            const token = localStorage.getItem("Token");
-            const headers = {
-                'Authorization': `Bearer ${token}`,
-            };
+        };
 
-            axios.get("http://localhost:8080" + "/api/login/user?login=andrew@gmail.com", { headers })
-                .then((response) => {
-                    if (response.data.admin === true) {
-                        this.admin = true;
-                    }
-                })
-                .catch((error) => {
-                    console.error('Erro ao obter dados:', error);
-                });
+        const isAdmin = async () => {
+            await usersStore.isAdmin();
+            admin.value = usersStore.getIsAdmin;
+        };
+
+        const sairDaConta = () => {
+            localStorage.removeItem("Token");
+            router.push('/login');
         }
-    },
-    created() {
-        this.verificarToken();
-        this.isAdmin();
+
+        verificarToken();
+
+        return {
+            logado,
+            isAdmin,
+            sairDaConta,
+            admin
+        };
     }
 }
 </script>

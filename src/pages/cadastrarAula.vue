@@ -3,7 +3,7 @@
         <Navbar />
         <main class="container">
             <div class="containerTitle">
-                <span class="title">Cadastre uma Aula</span>
+                <span class="title">Cadastre uma Aula Agora</span>
             </div>
             <div class="containerCardForm">
                 <img class="imageContainer" src="../assets/image.jpg" alt="ImagemTeste">
@@ -68,7 +68,9 @@
                 </form>
             </div>
         </main>
-        <Rodape />
+        <footer>
+            <Rodape />
+        </footer>
     </section>
 </template>
 
@@ -134,31 +136,10 @@ export default {
                     console.log("Ocorreu um erro", error)
                 })
         },
-        isAdmin() {
-            const token = localStorage.getItem("Token");
-            const headers = {
-                'Authorization': `Bearer ${token}`,
-            };
-
-            axios.get("http://localhost:8080" + "/api/login/user?login=andrew@gmail.com", { headers })
-                .then((response) => {
-                    if (response.data.admin === true) {
-                        this.admin = true;
-                    } else {
-                        this.$router.push('/')
-                    }
-                })
-                .catch((error) => {
-                    console.error('Erro ao obter dados:', error);
-                });
-        }
     },
     components: {
         Navbar,
         Rodape
-    },
-    created() {
-        this.isAdmin();
     }
 }
 </script>
@@ -239,6 +220,7 @@ export default {
 .container {
     padding: 30px;
     background-color: #0B0B0B;
+    height: 100vh;
 }
 
 .containerTitle {
@@ -268,5 +250,11 @@ export default {
     height: 544.4px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
 }
 </style>

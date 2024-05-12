@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <header>
-            <Menu />
+            <Menu></Menu>
         </header>
         <main>
             <div class="cards">
@@ -62,10 +62,9 @@ export default {
     justify-content: center; 
     flex-wrap: wrap; 
     gap: 10px;
-    position: fixed;
-    bottom: 0;
     width: 75vw;
     margin-bottom: 30px;
+    padding: 50px;
 }
 
 main {
