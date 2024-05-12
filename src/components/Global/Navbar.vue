@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue';
-import { useUsersStore } from '../../store/users';
+import { useUsersStore } from '@/store/users';
 import { useRouter } from 'vue-router';
 
 export default {

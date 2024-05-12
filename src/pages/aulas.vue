@@ -13,7 +13,7 @@
 
 <script lang="ts">
 
-import AulaRenderizada from '../components/Aulas/AulaRenderizada.vue';
+import AulaRenderizada from '@/components/Aulas/AulaRenderizada.vue';
 
 export default {
     name: "Aulas",

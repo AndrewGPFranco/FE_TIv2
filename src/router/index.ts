@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import aulasVue from "../pages/aulas.vue";
-import homeVue from "../pages/home.vue";
-import loginVue from "../pages/login.vue";
-import roadmapVue from "../pages/roadmap.vue";
-import cursosVue from "../pages/cursos.vue";
-import matriculaVue from "../pages/matricula.vue";
-import CadastrarAula from "../pages/cadastrarAula.vue";
+import aulasVue from "@/pages/aulas.vue";
+import homeVue from "@/pages/home.vue";
+import loginVue from "@/pages/login.vue";
+import roadmapVue from "@/pages/roadmap.vue";
+import cursosVue from "@/pages/cursos.vue";
+import matriculaVue from "@/pages/matricula.vue";
+import CadastrarAula from "@/pages/cadastrarAula.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

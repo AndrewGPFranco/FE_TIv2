@@ -34,9 +34,9 @@ interface Aula {
 }
 
 import axios from "axios";
-import Navbar from "../Global/Navbar.vue";
-import Rodape from "../Global/Rodape.vue";
-import Categorias from "../Inicio/Categorias.vue";
+import Navbar from "@/components/Global/Navbar.vue";
+import Rodape from "@/components/Global/Rodape.vue";
+import Categorias from "@/components/Inicio/Categorias.vue";
 
 export default {
     data() {

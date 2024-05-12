@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import CardCategorias from '../components/Home/CardCategorias.vue';
-import Menu from '../components/Home/Menu.vue';
+import CardCategorias from '@/components/Home/CardCategorias.vue';
+import Menu from '@/components/Home/Menu.vue';
 
 export default {
     data() {
