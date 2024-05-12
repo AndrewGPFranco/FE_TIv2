@@ -47,7 +47,7 @@ export default {
     text-align: center;
     gap: 10px;
     background-color: #161616;
-    width: 240px;
+    width: 30%;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 5px;

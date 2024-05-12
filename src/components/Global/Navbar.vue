@@ -2,7 +2,7 @@
     <nav>
         <div class="container-titulo">
             <h1>
-                <router-link to="/">Dev <span>Livre</span></router-link>
+                <router-link to="/dashboard">Dev <span>Livre</span></router-link>
             </h1>
         </div>
         <div class="container-links">

@@ -9,6 +9,8 @@
                 <CardCategorias titulo="Frontend" sinopse="Descubra as melhores práticas para criar interfaces atraentes e funcionais..." icone="pi-desktop " />
                 <CardCategorias titulo="Fullstack" sinopse="Combine as habilidades de frontend e backend para desenvolver aplicações completas..." icone="pi-sitemap" />
                 <CardCategorias titulo="Database" sinopse="Explore conceitos de bancos de dados e aprenda a gerenciar dados de forma eficaz..." icone="pi-database " />
+                <CardCategorias titulo="Infra" sinopse="Implantação e gerenciamento de Infraestrutura, Servidores, Docker e Redes ..." icone="pi-cog " />
+                <CardCategorias titulo="DevOps" sinopse="Práticas e ferramentas que integram o desenvolvimento de software com operações de TI..." icone="pi-globe" />
             </div>
         </main>
     </div>
@@ -68,7 +70,12 @@ export default {
 }
 
 main {
-    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #D9D9D9; */
+    background-image: url("../assets/fundo.jpg");
 }
 
 </style>

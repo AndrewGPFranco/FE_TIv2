@@ -50,8 +50,8 @@ const router = createRouter({
       path: "/admin/cadastro/aula",
       name: "cadastrarAula",
       component: CadastrarAula,
-      meta: { requiresAuth: false },
-    }
+      meta: { requiresAuth: true },
+    },
   ],
 });
 

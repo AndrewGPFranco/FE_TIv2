@@ -20,10 +20,3 @@ export default {
     components: { AulaRenderizada }
 };
 </script>
-
-<style scoped>
-.containerAula ul {
-    display: flex;
-    flex-direction: column;
-}
-</style>

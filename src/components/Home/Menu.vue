@@ -1,31 +1,31 @@
 <template>
     <menu>
         <div class="logoSite">
-            <router-link to="/roadmap">
-                <h1>Dev<span class="titulo">FREE</span></h1>
+            <router-link to="/cursos">
+                <h1>Dev<span class="titulo">LIVRE</span></h1>
             </router-link>
         </div>
         <div class="menuOpcoes">
             <ul>
                 <li>
                     <i class="pi pi-book" style="font-size: 1.5rem; color: #000080"></i>
-                    <p>Blog</p>
+                    <router-link to="/roadmap">Blog</router-link>
                 </li>
                 <li>
                     <i class="pi pi-graduation-cap" style="font-size: 1.5rem; color: #006400"></i>
-                    <p>Cursos</p>
+                    <router-link to="/cursos">Cursos</router-link>
                 </li>
                 <li>
                     <i class="pi pi-map-marker" style="font-size: 1.5rem; color: #FFA500"></i>
-                    <p>Roadmap</p>
+                    <router-link to="/roadmap">Roadmap</router-link>
                 </li>
                 <li>
                     <i class="pi pi-bell" style="font-size: 1.5rem; color: #FF0000"></i>
-                    <p>Novidades</p>
+                    <router-link to="/roadmap">Novidades</router-link>
                 </li>
                 <li>
                     <i class="pi pi-link" style="font-size: 1.5rem; color: #9A653A"></i>
-                    <p>Referencias</p>
+                    <router-link to="/roadmap">Referencias</router-link>
                 </li>
             </ul>
         </div>
@@ -44,12 +44,6 @@
         </div>
     </menu>
 </template>
-
-<script lang="ts">
-    export default {
-        
-    }
-</script>
 
 <style scoped>
 
@@ -88,12 +82,18 @@
 
     ul li {
         display: flex;
+        align-items: center;
         gap: 10px;
         justify-content: center;
     }
 
     ul li p {
         font-size: 1.5rem;
+    }
+
+    .menuOpcoes a {
+        color: #0097B2;
+        font-size: 2rem;
     }
     
 </style>
