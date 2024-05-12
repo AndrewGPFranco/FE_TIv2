@@ -58,6 +58,7 @@ export default {
 
         const sairDaConta = () => {
             localStorage.removeItem("Token");
+            localStorage.removeItem("email");
             router.push('/login');
         }
 

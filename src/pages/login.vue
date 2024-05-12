@@ -30,21 +30,23 @@ export default {
         };
     },
     methods: {
-        efetuarLogin() {
+        async efetuarLogin() {
             const dados = {
                 login: this.login,
                 senha: this.senha
             };
-            axios.post("http://localhost:8080/api/login", dados)
+            await axios.post("http://localhost:8080/api/login", dados)
                 .then((response) => {
                 const Token = response.data.token;
+                const email = response.data.login;
                 localStorage.setItem('Token', Token);
+                localStorage.setItem('email', email);
                 this.$router.push({ name: "home" });
             })
                 .catch((error) => {
                 console.log(error);
             });
-        }
+        },
     },
     watch: {
         $route: {
