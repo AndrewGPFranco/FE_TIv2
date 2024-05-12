@@ -68,7 +68,7 @@ export default {
             logado,
             isAdmin,
             sairDaConta,
-            admin
+            admin,
         };
     }
 }
