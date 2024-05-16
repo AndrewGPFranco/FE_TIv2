@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div class="container-links">
-            <router-link to="/admin/cadastro/aula" v-if="admin">
+            <router-link to="/admin/cadastro/aula" v-if="admin == 'true'">
                 CADASTRAR AULA
             </router-link>
             <router-link to="/roadmap" v-if="logado">
@@ -29,20 +29,14 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from 'vue';
-import { useUsersStore } from '@/store/users';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
     setup() {
         const router = useRouter();
-        const usersStore = useUsersStore();
         const logado = ref(false);
-        const admin = ref(false);
-
-        onMounted(() => {
-            isAdmin();
-        })
+        const admin = localStorage.getItem("admin");
 
         const verificarToken = () => {
             const token = localStorage.getItem("Token");
@@ -51,14 +45,10 @@ export default {
             }
         };
 
-        const isAdmin = async () => {
-            await usersStore.isAdmin();
-            admin.value = usersStore.getIsAdmin;
-        };
-
         const sairDaConta = () => {
             localStorage.removeItem("Token");
             localStorage.removeItem("email");
+            localStorage.removeItem("admin");
             router.push('/login');
         }
 
@@ -66,7 +56,6 @@ export default {
 
         return {
             logado,
-            isAdmin,
             sairDaConta,
             admin,
         };

@@ -110,7 +110,6 @@ export default {
             }
 
             if (this.titulo === '' || this.descricao === '' || this.cadastro === '' || this.duracao === '' || this.status === '' || this.imagem === '' || this.url === '' || this.tech === '' || this.categoria === '') {
-                console.log("Preencha todos os campos antes de enviar o formulário.");
                 return;
             }
 
@@ -121,7 +120,6 @@ export default {
 
             axios.post("http://localhost:8080/api/cadastro/aula", dados, { headers })
                 .then((response) => {
-                    console.log("Aula cadastrada com sucesso!", response);
                     this.titulo = '';
                     this.descricao = '';
                     this.cadastro = '';

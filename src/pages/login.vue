@@ -23,43 +23,32 @@
 <script lang="ts">
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
-import axios from "axios"
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useAuthStore } from "../store/auth";
 
 export default {
     setup() {
         const router = useRouter();
         const login = ref("");
         const senha = ref("");
-        const name = "Login";
+        const authStore = useAuthStore();
 
         const efetuarLogin = async () => {
-            const dados = {
-                login: login.value,
-                senha: senha.value
-            };
-            await axios.post("http://localhost:8080/api/login", dados)
-                .then((response) => {
-                const Token = response.data.token;
-                const email = response.data.login;
-                localStorage.setItem('Token', Token);
-                localStorage.setItem('email', email);
-                router.push({ name: "dashboard" });
-            })
-                .catch((error) => {
-                console.log(error);
-            });
+          await authStore.auth(login.value, senha.value);
         }
 
         return {
             login,
             senha,
-            name,
             router,
             efetuarLogin
         };
     },
+    components: {
+      Navbar,
+      Rodape
+    }
 }
 </script>
 

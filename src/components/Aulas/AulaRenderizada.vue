@@ -56,8 +56,6 @@ export default {
                 .then((response) => {
                     if (response.status === 200) {
                         this.dados = response.data;
-                        //this.dados = response.data["Aulas Encontradas: "];
-                        //console.log(response.data);
                     }
                     else {
                         console.error('Erro na requisição:', response.status);

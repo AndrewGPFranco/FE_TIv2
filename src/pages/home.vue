@@ -74,8 +74,8 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color: #D9D9D9; */
-    background-image: url("../assets/fundo.jpg");
+    background-color: #D9D9D9; 
+    /* background-image: url("../assets/fundo.jpg"); */
 }
 
 </style>

@@ -6,6 +6,7 @@ import roadmapVue from "@/pages/roadmap.vue";
 import cursosVue from "@/pages/cursos.vue";
 import matriculaVue from "@/pages/matricula.vue";
 import CadastrarAula from "@/pages/cadastrarAula.vue";
+import { useAuthStore } from "@/store/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

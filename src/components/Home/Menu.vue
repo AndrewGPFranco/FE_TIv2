@@ -54,6 +54,7 @@
 
     .logoSite h1 {
         font-size: 3rem;
+        color: white!important;
     }
 
     .titulo {
@@ -92,8 +93,9 @@
     }
 
     .menuOpcoes a {
-        color: #0097B2;
+        color: #cfc7c7;
         font-size: 2rem;
+        font-weight: bold;
     }
     
 </style>
