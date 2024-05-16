@@ -50,16 +50,27 @@
                             </div>
                             <div>
                                 <label class="label" for="tech">Tecnologia</label>
-                                <input class="input" type="text" name="tech" v-model="tech" required autocomplete="off"
-                                    placeholder="Digite a tecnologia da aula...">
+                                <select class="select" name="tech" v-model="tech" required>
+                                    <option value="valor1">HTML</option>
+                                    <option value="valor2">CSS</option>
+                                    <option value="valor3">VUE</option>
+                                    <option value="valor3">NUXT</option>
+                                    <option value="valor3">REACT</option>
+                                    <option value="valor3">JAVA</option>
+                                    <option value="valor3">PHP</option>
+                                    <option value="valor3">NODE</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="containerButton">
                         <div>
                             <label class="label" id="labelCategoria" for="categoria">Categoria</label>
-                            <input class="input" type="text" name="categoria" v-model="categoria" required
-                                autocomplete="off" placeholder="Digite a categoria da aula...">
+                            <select class="select" name="categoria" v-model="categoria" required>
+                                <option value="valor1">Frontend</option>
+                                <option value="valor2" selected>Backend</option>
+                                <option value="valor3">Fullstack</option>
+                            </select>
                         </div>
                         <div>
                             <button class="submit" type="submit">Cadastrar</button>
@@ -93,6 +104,8 @@ export default {
             tech: "",
             categoria: "",
             status: 'true',
+            tech: 'valor1',
+            categoria: 'valor1',
         }
     },
     methods: {

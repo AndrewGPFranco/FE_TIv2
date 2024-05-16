@@ -38,7 +38,7 @@
                 </li>
                 <li>
                     <i class="pi pi-gauge" style="font-size: 1.5rem; color: #A9D3D3"></i>
-                    <p>Aluno <strong>{{ level }}</strong></p>
+                    <p>Aluno <strong class="level">{{ level ? level : "Sem nível" }}</strong></p>
                 </li>
             </ul>
         </div>
@@ -131,6 +131,10 @@ export default {
         color: #cfc7c7;
         font-size: 2rem;
         font-weight: bold;
+    }
+
+    .level {
+        color: aqua;
     }
     
 </style>
