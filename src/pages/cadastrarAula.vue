@@ -89,6 +89,7 @@
 import axios from 'axios';
 import Navbar from "@/components/Global/Navbar.vue"
 import Rodape from "@/components/Global/Rodape.vue"
+import { URL_BASE } from "@/utils/utils";
 
 export default {
     name: "cadastrarAula",
@@ -103,7 +104,6 @@ export default {
             url: "",
             tech: "",
             categoria: "",
-            status: 'true',
             tech: 'valor1',
             categoria: 'valor1',
         }
@@ -115,7 +115,6 @@ export default {
                 descricao: this.descricao,
                 cadastro: this.cadastro,
                 duracao: this.duracao,
-                status: this.status,
                 imagem: this.imagem,
                 url: this.url,
                 tech: this.tech,
@@ -131,7 +130,7 @@ export default {
                 'Authorization': `Bearer ${token}`,
             };
 
-            axios.post("http://localhost:8080/api/cadastro/aula", dados, { headers })
+            axios.post(URL_BASE + "cadastro/aula", dados, { headers })
                 .then((response) => {
                     this.titulo = '';
                     this.descricao = '';

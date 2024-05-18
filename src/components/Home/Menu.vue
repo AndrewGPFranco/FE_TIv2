@@ -49,6 +49,8 @@
 
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { URL_BASE } from '@/utils/utils';
+
 export default {
     setup() {
         const level = ref("");
@@ -59,7 +61,7 @@ export default {
             const headers = {
                 Authorization: `Bearer ${token}`,
             };
-            axios.get(`http://localhost:8080/api/aluno/findbyemail?email=${email}`, { headers })
+            axios.get(URL_BASE + `aluno/findbyemail?email=${email}`, { headers })
                 .then((response) => {
                     level.value = response.data["Aluno encontrado:"].nivel;
                 })

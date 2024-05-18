@@ -1,6 +1,7 @@
 import axios from "axios";
 import { defineStore } from "pinia";
 import router from "@/router";
+import { URL_BASE } from "@/utils/utils";
 
 export const useAuthStore = defineStore("users", {
   state: () => ({
@@ -22,7 +23,7 @@ export const useAuthStore = defineStore("users", {
         senha: senha,
       };
       await axios
-        .post("http://localhost:8080/api/login", dados)
+        .post(URL_BASE + "login", dados)
         .then((response) => {
             const Token = response.data.token;
             const email = response.data.login;
@@ -46,7 +47,7 @@ export const useAuthStore = defineStore("users", {
 
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/login/user/admin?login=${email}`,
+          URL_BASE + `login/user/admin?login=${email}`,
           { headers }
         );
         this.isAdmin = response.data.admin;

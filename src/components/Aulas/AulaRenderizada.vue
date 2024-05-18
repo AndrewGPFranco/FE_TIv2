@@ -28,8 +28,8 @@ interface Aula {
     descricao: string;
     duracao: number;
     imagem: string,
-    status: boolean;
     url: string;
+    tecnologia: string;
     categoria: string;
 }
 
@@ -37,12 +37,13 @@ import axios from "axios";
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import Categorias from "@/components/Inicio/Categorias.vue";
+import { URL_BASE } from "@/utils/utils";
 
 export default {
     data() {
         return {
             dados: [] as Aula[],
-            name: "Aulas"
+            name: "Aulas",
         };
     },
     methods: {
@@ -51,8 +52,10 @@ export default {
             const headers = {
                 'Authorization': `Bearer ${token}`,
             };
-            const tech = this.$route.params.tech;
-            axios.get("http://localhost:8080/api/aulas/tecnologia/" + tech, { headers })
+            // @ts-ignore
+            const tech = this.$route.params.tech.toUpperCase();
+
+            axios.get(URL_BASE + "aulas/tecnologia/" + tech, { headers })
                 .then((response) => {
                     if (response.status === 200) {
                         this.dados = response.data;
