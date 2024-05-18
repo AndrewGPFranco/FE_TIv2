@@ -1,28 +1,8 @@
 <template>
     <div class="container">
         <p>
-            <router-link to="/aulas/html">
-                HTML
-            </router-link>
-        </p>
-        <p>
-            <router-link to="/aulas/css">
-                CSS
-            </router-link>
-        </p>
-        <p>
             <router-link to="/aulas/vue">
                 VUE
-            </router-link>
-        </p>
-        <p>
-            <router-link to="/aulas/nuxt">
-                NUXT
-            </router-link>
-        </p>
-        <p>
-            <router-link to="/aulas/react">
-                REACT
             </router-link>
         </p>
         <p>
@@ -31,13 +11,13 @@
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/php">
-                PHP
+            <router-link to="/aulas/typescript">
+                TYPESCRIPT
             </router-link>
         </p>
         <p>
-            <router-link to="/aulas/node">
-                NODE
+            <router-link to="/aulas/sql">
+                SQL
             </router-link>
         </p>
     </div>
