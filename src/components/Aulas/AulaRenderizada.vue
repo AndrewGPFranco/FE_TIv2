@@ -85,7 +85,8 @@ export default {
             immediate: true,
             handler(to) {
                 const tech = this.$route.params.tech;
-                document.title = to.meta.title || 'TI for All - Aulas de ' + tech;
+                // @ts-ignore
+                document.title = to.meta.title || 'TI for All - Aulas de ' + tech.toUpperCase();
             }
         }
     },

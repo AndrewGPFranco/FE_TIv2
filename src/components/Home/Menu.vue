@@ -2,7 +2,7 @@
     <menu>
         <div class="logoSite">
             <router-link to="/cursos">
-                <h1>Dev<span class="titulo">LIVRE</span></h1>
+                <h1>Dev<span class="titulo"> | Livre</span></h1>
             </router-link>
         </div>
         <div class="menuOpcoes">
@@ -95,16 +95,17 @@ export default {
     }
 
     .titulo {
-        color: aqua;
+        color: var(--titulo-color);
     }
 
     menu {
         height: 100vh;
-        background-color: #050017;
+        background-color: var(--fundo-color);
         color: white;
         display: flex;
         flex-direction: column;
         gap: 30px;
+        border-right: 1px solid var(--border-color);
     }
 
     .linhaDivisoria {

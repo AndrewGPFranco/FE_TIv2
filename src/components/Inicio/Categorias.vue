@@ -35,7 +35,7 @@ export default {
     justify-content: space-around;
     gap: 20px;
     background-color: #01080E;
-    padding: 10px;
+    padding: 15px;
     color: white;
     font-weight: 400;
 }

@@ -2,7 +2,7 @@
     <nav>
         <div class="container-titulo">
             <h1>
-                <router-link to="/dashboard">Dev <span>Livre</span></router-link>
+                <router-link to="/dashboard">Dev <span>| Livre</span></router-link>
             </h1>
         </div>
         <div class="container-links">
@@ -67,10 +67,11 @@ export default {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 15px 30px;
+    padding: 17px 30px;
     background: linear-gradient(to bottom, #01080E, #0B0B0B);
     color: white;
     align-items: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .container-titulo {
@@ -98,7 +99,7 @@ nav {
 }
 
 .container-links a:hover {
-    color: aqua;
+    color: #0097B2;
 }
 
 .container-links button {
@@ -126,11 +127,11 @@ nav {
 }
 
 .container-links button:hover {
-    color: aqua;
-    background-color: rgb(0, 80, 53);
+    color: rgb(0, 0, 0);
+    background-color: #0097B2;
 }
 
 span {
-    color: aqua;
+    color: var(--titulo-color);
 }
 </style>

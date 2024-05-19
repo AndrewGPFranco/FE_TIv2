@@ -6,7 +6,7 @@ import { URL_BASE } from "@/utils/utils";
 export const useAuthStore = defineStore("users", {
   state: () => ({
     isAuthenticated: false,
-    isAdmin: false
+    isAdmin: false,
   }),
   getters: {
     getIsAuthenticated(state: any) {

@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Contrail+One&display=swap");
 
+/* variaveis */
+
+:root {
+  --border-color: rgb(70, 70, 70);
+  --fundo-color: #050505;
+  --titulo-color: #007BFF;
+}
+
 * {
   padding: 0;
   margin: 0;
