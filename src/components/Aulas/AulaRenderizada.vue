@@ -86,7 +86,7 @@ export default {
             handler(to) {
                 const tech = this.$route.params.tech;
                 // @ts-ignore
-                document.title = to.meta.title || 'TI for All - Aulas de ' + tech.toUpperCase();
+                document.title = to.meta.title || 'Dev | Livre - Aulas de ' + tech.toUpperCase();
             }
         }
     },
@@ -122,6 +122,7 @@ export default {
     max-width: 350px;
     text-align: center;
     border-radius: 30px;
+    max-height: 270px;
 }
 
 .cardAula p {
