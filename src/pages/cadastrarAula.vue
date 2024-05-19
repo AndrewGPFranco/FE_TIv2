@@ -4,6 +4,8 @@
         <main class="container">
             <div class="containerTitle">
                 <span class="title">Cadastre uma Aula Agora</span>
+                <h1 v-if="sucess" class="sucess">Aula cadastrada com sucesso..</h1>
+                <h1 v-if="error" class="error">Erro ao cadastrar aula..</h1>
             </div>
             <div class="containerCardForm">
                 <img class="imageContainer" src="../assets/image.jpg" alt="ImagemTeste">
@@ -44,18 +46,18 @@
                             <div>
                                 <label class="label" for="tech">Tecnologia</label>
                                 <select class="select" name="tech" v-model="tech" required>
-                                    <option value="valor1">JAVA</option>
-                                    <option value="valor2">VUE</option>
-                                    <option value="valor3">TYPESCRIPT</option>
-                                    <option value="valor3">SQL</option>
+                                    <option value="JAVA">JAVA</option>
+                                    <option value="VUE">VUE</option>
+                                    <option value="TYPESCRIPT">TYPESCRIPT</option>
+                                    <option value="SQL">SQL</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="label" id="labelCategoria" for="categoria">Categoria</label>
                                 <select class="select" name="categoria" v-model="categoria" required>
-                                    <option value="valor1">FRONTEND</option>
-                                    <option value="valor2" selected>BACKEND</option>
-                                    <option value="valor3">FULLSTACK</option>
+                                    <option value="FRONTEND">FRONTEND</option>
+                                    <option value="BACKEND" selected>BACKEND</option>
+                                    <option value="FULLSTACK">FULLSTACK</option>
                                 </select>
                             </div>
                         </div>
@@ -89,11 +91,12 @@ export default {
             descricao: "",
             cadastro: "",
             duracao: "",
-            status: "",
             imagem: "",
             url: "",
-            tech: 'valor1',
-            categoria: 'valor1',
+            tech: 'JAVA',
+            categoria: 'BACKEND',
+            sucess: false,
+            error: false
         }
     },
     methods: {
@@ -126,13 +129,28 @@ export default {
                     this.duracao = '';
                     this.imagem = '';
                     this.url = '';
-                    this.tech = '';
-                    this.categoria = '';
+                    this.tech = 'JAVA';
+                    this.categoria = 'BACKEND';
+                    this.result(true)
                 })
                 .catch((error) => {
+                    this.result(false)
                     console.log("Ocorreu um erro", error)
                 })
         },
+        result(value) {
+            if (value) {
+                this.sucess = true;
+                setTimeout(() => {
+                    this.sucess = false;
+                }, 5000);
+            } else {
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;           
+                }, 5000);
+            }
+        }
     },
     components: {
         Navbar,
@@ -150,6 +168,7 @@ export default {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-bottom: 40px;
+    height: 500px;
 }
 
 .title {
@@ -216,7 +235,6 @@ export default {
 .container {
     padding: 10px;
     background-color: #0B0B0B;
-    height: 100vh;
 }
 
 .containerTitle {
@@ -243,8 +261,36 @@ export default {
 
 .imageContainer {
     width: 500px;
-    height: 499px;
+    height: 500px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+}
+
+.sucess {
+    background-color: green;
+    color: white;
+    margin: auto;
+    max-width: 60%;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.error {
+    background-color: red;
+    color: white;
+    margin: auto;
+    max-width: 60%;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
 }
 </style>
