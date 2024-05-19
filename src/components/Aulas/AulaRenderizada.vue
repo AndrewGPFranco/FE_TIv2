@@ -22,22 +22,12 @@
 </template>
 
 <script lang="ts">
-interface Aula {
-    id: number;
-    titulo: string;
-    descricao: string;
-    duracao: number;
-    imagem: string,
-    url: string;
-    tecnologia: string;
-    categoria: string;
-}
-
 import axios from "axios";
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import Categorias from "@/components/Inicio/Categorias.vue";
 import { URL_BASE } from "@/utils/utils";
+import { Aula } from "@/interfaces/IAula";
 
 export default {
     data() {
@@ -143,5 +133,9 @@ export default {
     display: flex;
     justify-content: center;
     gap: 100px;
+}
+
+footer {
+    margin-bottom: -5px;
 }
 </style>

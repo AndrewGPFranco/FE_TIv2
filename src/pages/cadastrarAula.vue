@@ -50,6 +50,7 @@
                                     <option value="VUE">VUE</option>
                                     <option value="TYPESCRIPT">TYPESCRIPT</option>
                                     <option value="SQL">SQL</option>
+                                    <option value="DIVERSOS">DIVERSOS</option>
                                 </select>
                             </div>
                             <div>

@@ -29,7 +29,6 @@
                 </li>
             </ul>
         </div>
-        <div class="linhaDivisoria"></div>
         <div class="usuarioInfos">
             <ul>
                 <li>
@@ -84,6 +83,10 @@ export default {
 
 <style scoped>
 
+    .menuOpcoes {
+        border-bottom: 1px solid var(--border-color);
+    }
+
     .logoSite {
         text-align: center;
         margin-top: 30px;
@@ -104,12 +107,8 @@ export default {
         color: white;
         display: flex;
         flex-direction: column;
-        gap: 30px;
         border-right: 1px solid var(--border-color);
-    }
-
-    .linhaDivisoria {
-        width: 80%;
+        justify-content: space-between;
     }
 
     ul {
@@ -144,5 +143,4 @@ export default {
         color: var(--titulo-color);
         transition: 0.3s;
     }
-    
 </style>

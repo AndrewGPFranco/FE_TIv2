@@ -65,7 +65,7 @@ export default {
     flex-wrap: wrap; 
     gap: 10px;
     width: 75vw;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding: 50px;
 }
 

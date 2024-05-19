@@ -20,6 +20,11 @@
                 SQL
             </router-link>
         </p>
+        <p>
+            <router-link to="/aulas/diversos">
+                DIVERSOS
+            </router-link>
+        </p>
     </div>
 </template>
 
@@ -38,6 +43,7 @@ export default {
     padding: 15px;
     color: white;
     font-weight: 400;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .container a {
