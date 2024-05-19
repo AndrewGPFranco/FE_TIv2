@@ -10,8 +10,8 @@
         <div class="containerAula">
             <div class="cardAula" v-for="aula in dados" :key="aula.id">
                 <div>
-                    <p>{{ aula.titulo }}</p>
                     <img :src="aula.imagem" alt="Thumbnail da Aula">
+                    <p>{{ aula.titulo }}</p>
                 </div>
             </div>
         </div>
@@ -114,18 +114,20 @@ export default {
 }
 
 .cardAula {
-    background-color: #BDFDFC;
-    padding: 20px;
-    border: 3px solid rgb(255, 2, 44);
+    display: flex;
+    background-color: #151515;
+    color: white;
+    padding: 15px;
     margin: 10px;
-    width: 400px;
+    max-width: 350px;
     text-align: center;
     border-radius: 30px;
 }
 
 .cardAula p {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-top: 2px;
+    color: rgb(172, 172, 172);
     font-family: 'Courier New', Courier, monospace
 }
 
@@ -133,6 +135,7 @@ export default {
     margin-bottom: 10px;
     width: 320px;
     height: 170px;
+    border-radius: 20px;
 }
 
 .botoes {

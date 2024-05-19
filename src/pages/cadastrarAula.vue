@@ -26,18 +26,11 @@
                             </div>
                             <div>
                                 <label class="label" for="duracao">Duração</label>
-                                <input class="input" type="number" name="duracao" v-model="duracao" required
+                                <input class="input" min="1" type="number" name="duracao" v-model="duracao" required
                                     autocomplete="off" placeholder="Digite a duração da aula...">
                             </div>
                         </div>
                         <div>
-                            <div>
-                                <label class="label" for="status">Status</label>
-                                <select class="select" name="status" v-model="status" required>
-                                    <option value="true">Ativo</option>
-                                    <option value="false">Inativo</option>
-                                </select>
-                            </div>
                             <div>
                                 <label class="label" for="imagem">Imagem</label>
                                 <input class="input" type="text" name="imagem" v-model="imagem" required
@@ -51,27 +44,24 @@
                             <div>
                                 <label class="label" for="tech">Tecnologia</label>
                                 <select class="select" name="tech" v-model="tech" required>
-                                    <option value="valor1">HTML</option>
-                                    <option value="valor2">CSS</option>
-                                    <option value="valor3">VUE</option>
-                                    <option value="valor3">NUXT</option>
-                                    <option value="valor3">REACT</option>
-                                    <option value="valor3">JAVA</option>
-                                    <option value="valor3">PHP</option>
-                                    <option value="valor3">NODE</option>
+                                    <option value="valor1">JAVA</option>
+                                    <option value="valor2">VUE</option>
+                                    <option value="valor3">TYPESCRIPT</option>
+                                    <option value="valor3">SQL</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="label" id="labelCategoria" for="categoria">Categoria</label>
+                                <select class="select" name="categoria" v-model="categoria" required>
+                                    <option value="valor1">FRONTEND</option>
+                                    <option value="valor2" selected>BACKEND</option>
+                                    <option value="valor3">FULLSTACK</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="containerButton">
-                        <div>
-                            <label class="label" id="labelCategoria" for="categoria">Categoria</label>
-                            <select class="select" name="categoria" v-model="categoria" required>
-                                <option value="valor1">Frontend</option>
-                                <option value="valor2" selected>Backend</option>
-                                <option value="valor3">Fullstack</option>
-                            </select>
-                        </div>
+                        
                         <div>
                             <button class="submit" type="submit">Cadastrar</button>
                         </div>
@@ -102,8 +92,6 @@ export default {
             status: "",
             imagem: "",
             url: "",
-            tech: "",
-            categoria: "",
             tech: 'valor1',
             categoria: 'valor1',
         }
@@ -121,7 +109,7 @@ export default {
                 categoria: this.categoria
             }
 
-            if (this.titulo === '' || this.descricao === '' || this.cadastro === '' || this.duracao === '' || this.status === '' || this.imagem === '' || this.url === '' || this.tech === '' || this.categoria === '') {
+            if (this.titulo === '' || this.descricao === '' || this.cadastro === '' || this.duracao === '' || this.imagem === '' || this.url === '' || this.tech === '' || this.categoria === '') {
                 return;
             }
 
@@ -136,7 +124,6 @@ export default {
                     this.descricao = '';
                     this.cadastro = '';
                     this.duracao = '';
-                    this.status = '';
                     this.imagem = '';
                     this.url = '';
                     this.tech = '';
@@ -157,7 +144,6 @@ export default {
 <style scoped>
 .form {
     max-width: 650px;
-    width: 100%;
     background-color: #f9f9f9;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -228,7 +214,7 @@ export default {
 }
 
 .container {
-    padding: 30px;
+    padding: 10px;
     background-color: #0B0B0B;
     height: 100vh;
 }
@@ -257,14 +243,8 @@ export default {
 
 .imageContainer {
     width: 500px;
-    height: 544.4px;
+    height: 499px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
 }
 </style>

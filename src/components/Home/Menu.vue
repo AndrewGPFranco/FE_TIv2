@@ -137,7 +137,12 @@ export default {
     }
 
     .level {
-        color: aqua;
+        color: var(--titulo-color)
+    }
+
+    a:hover {
+        color: var(--titulo-color);
+        transition: 0.3s;
     }
     
 </style>
