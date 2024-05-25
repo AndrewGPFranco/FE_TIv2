@@ -56,6 +56,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
+  if (to.path === "/") {
+    next("/dashboard");
+  }
   if (to.meta.requiresAuth) {
     const token = localStorage.getItem("Token");
     if (token) {
