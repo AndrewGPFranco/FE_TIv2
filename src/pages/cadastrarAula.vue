@@ -62,9 +62,18 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <label class="label" id="labelCurso" for="curso">Curso</label>
+                            <select class="select" name="curso" v-model="curso" required>
+                                <option value="Curso de Vue">Vue</option>
+                                <option value="Curso de Java" selected>Java</option>
+                                <option value="Curso de Typescript">Typescript</option>
+                                <option value="Curso de SQL">SQL</option>
+                                <option value="Curso de Diversos">Diversos</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="containerButton">
-                        
                         <div>
                             <button class="submit" type="submit">Cadastrar</button>
                         </div>
@@ -96,6 +105,7 @@ export default {
             url: "",
             tech: 'JAVA',
             categoria: 'BACKEND',
+            curso: 'Curso de Vue',
             sucess: false,
             error: false
         }
@@ -110,10 +120,20 @@ export default {
                 imagem: this.imagem,
                 url: this.url,
                 tech: this.tech,
-                categoria: this.categoria
+                categoria: this.categoria,
+                curso: this.curso
             }
 
-            if (this.titulo === '' || this.descricao === '' || this.cadastro === '' || this.duracao === '' || this.imagem === '' || this.url === '' || this.tech === '' || this.categoria === '') {
+            if (this.titulo === '' ||
+                this.descricao === '' ||
+                 this.cadastro === '' ||
+                  this.duracao === '' ||
+                   this.imagem === '' ||
+                    this.url === '' ||
+                     this.tech === '' ||
+                      this.categoria === '' ||
+                      this.curso === ''
+                    ) {
                 return;
             }
 
@@ -132,6 +152,7 @@ export default {
                     this.url = '';
                     this.tech = 'JAVA';
                     this.categoria = 'BACKEND';
+                    this.curso = 'Curso de Vue'
                     this.result(true)
                 })
                 .catch((error) => {
