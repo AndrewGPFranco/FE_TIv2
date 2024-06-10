@@ -5,14 +5,12 @@
     <main>
         <div class="container">
             <div class="heading">
-                Efetue o login
+                Crie uma conta
             </div>
-            <form class="form" @submit.prevent="efetuarLogin">
+            <form class="form" @submit.prevent="criarConta">
                 <input required="true" class="input" type="email" name="login" id="login" placeholder="E-mail" v-model="login">
                 <input required="true" class="input" type="password" name="senha" id="senha" placeholder="Senha" v-model="senha">
-                <span class="forgot-password"><a href="#">Esqueceu a senha?</a></span>
-                <span class="forgot-password"><router-link to="/registro">Crie uma conta</router-link></span>
-                <input class="login-button" type="submit" value="Entrar">
+                <input class="login-button" type="submit" value="Criar">
             </form>
         </div>
     </main>
@@ -25,25 +23,37 @@
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import { ref } from "vue";
+import axios from "axios";
+import { URL_BASE } from "@/utils/utils.ts"
 import { useRouter } from "vue-router";
-import { useAuthStore } from "../store/auth";
 
 export default {
     setup() {
-        const router = useRouter();
         const login = ref("");
         const senha = ref("");
-        const authStore = useAuthStore();
+        const router = useRouter();
 
-        const efetuarLogin = async () => {
-          await authStore.auth(login.value, senha.value);
+        const criarConta = () => {
+            const user = {
+                login: login.value,
+                senha: senha.value,
+                admin: false
+            }
+
+            axios.post(URL_BASE + "user/register", user)
+              .then(() => {
+                console.log("Deu certo");
+                router.push('/login');
+              })
+              .catch((error) => {
+                console.log(error);
+              })
         }
 
         return {
             login,
             senha,
-            router,
-            efetuarLogin
+            criarConta
         };
     },
     components: {
@@ -107,18 +117,6 @@ main {
 .form .input:focus {
   outline: none;
   border-inline: 2px solid #12B1D1;
-}
-
-.form .forgot-password {
-  display: block;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.form .forgot-password a {
-  font-size: 11px;
-  color: #0099ff;
-  text-decoration: none;
 }
 
 .form .login-button {
