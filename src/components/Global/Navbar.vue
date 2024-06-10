@@ -15,7 +15,7 @@
             <router-link to="/cursos" v-if="logado">
                 CURSOS
             </router-link>
-            <router-link to="/login" v-if="!logado">
+            <router-link to="/login" class="entrar" v-if="!logado">
                 ENTRAR
             </router-link>
             <button v-if="!logado">
@@ -98,8 +98,8 @@ nav {
     font-weight: 800;
 }
 
-.container-links a:hover {
-    color: #0097B2;
+.entrar:hover {
+    color: #ff0000;
 }
 
 .container-links button {
