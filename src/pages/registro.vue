@@ -3,6 +3,10 @@
         <Navbar />
     </header>
     <main>
+        <div class="containerTitle">
+          <h1 v-if="sucess" class="sucess">Conta cadastrada com sucesso...</h1>
+          <h1 v-if="error" class="error">Erro ao cadastrar conta...</h1>
+        </div>
         <div class="container">
             <div class="heading">
                 Crie uma conta
@@ -42,6 +46,8 @@ export default {
         const dataNascimento = ref("");
         const genero = ref("MASCULINO");
         const telefone = ref("");
+        const error = ref(false);
+        const sucess = ref(false);
         const router = useRouter();
 
         const criarConta = () => {
@@ -58,10 +64,14 @@ export default {
             axios.post(URL_BASE + "user/register", user)
               .then(() => {
                 console.log("Deu certo");
-                router.push('/login');
+                sucess.value = true;
+                setTimeout(() => {
+                  router.push('/login');
+                }, 5000);
               })
-              .catch((error) => {
-                console.log(error);
+              .catch((erro) => {
+                console.log(erro);
+                error.value = true;
               })
         }
 
@@ -72,6 +82,8 @@ export default {
             dataNascimento,
             genero,
             telefone,
+            error,
+            sucess,
             criarConta
         };
     },
@@ -86,6 +98,7 @@ export default {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -221,15 +234,49 @@ main {
 }
 
 .select {
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    font-size: 1rem;
-    margin-top: 6px;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.sucess {
+  background-color: green;
+  color: white;
+  margin: auto;
+  max-width: 60%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  margin: auto;
+  max-width: 60%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.containerTitle {
+  width: 100vw;
+  text-align: center;
+  padding: 20px;
 }
 
 </style>
