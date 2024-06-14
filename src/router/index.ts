@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import aulasVue from "@/pages/aulas.vue";
 import homeVue from "@/pages/home.vue";
 import loginVue from "@/pages/login.vue";
+import registroVue from "@/pages/registro.vue";
 import roadmapVue from "@/pages/roadmap.vue";
 import cursosVue from "@/pages/cursos.vue";
 import matriculaVue from "@/pages/matricula.vue";
@@ -20,6 +21,12 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: loginVue,
+      meta: { requiresAuth: false },
+    },
+    {
+      path: "/registro",
+      name: "registrarUsuario",
+      component: registroVue,
       meta: { requiresAuth: false },
     },
     {

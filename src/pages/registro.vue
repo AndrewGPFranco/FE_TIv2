@@ -3,16 +3,25 @@
         <Navbar />
     </header>
     <main>
+        <div class="containerTitle">
+          <h1 v-if="sucess" class="sucess">Conta cadastrada com sucesso...</h1>
+          <h1 v-if="error" class="error">Erro ao cadastrar conta...</h1>
+        </div>
         <div class="container">
             <div class="heading">
-                Efetue o login
+                Crie uma conta
             </div>
-            <form class="form" @submit.prevent="efetuarLogin">
-                <input required="true" class="input" type="email" name="login" id="login" placeholder="E-mail" v-model="login">
-                <input required="true" class="input" type="password" name="senha" id="senha" placeholder="Senha" v-model="senha">
-                <span class="forgot-password"><a href="#">Esqueceu a senha?</a></span>
-                <span class="forgot-password"><router-link to="/registro">Crie uma conta</router-link></span>
-                <input class="login-button" type="submit" value="Entrar">
+            <form class="form" @submit.prevent="criarConta">
+              <input required="true" class="input" type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome completo" v-model="nomeCompleto">
+              <select class="select input" name="genero" v-model="genero" required>
+                <option value="MASCULINO">MASCULINO</option>
+                <option value="FEMININO" selected>FEMININO</option>
+              </select>
+              <input required="true" class="input" type="tel" name="telefone" id="telefone" placeholder="Telefone" v-model="telefone">
+              <input required="true" class="input" type="date" name="dataNascimento" id="dataNascimento" placeholder="Senha" v-model="dataNascimento">
+              <input required="true" class="input" type="email" name="login" id="login" placeholder="E-mail" v-model="login">
+              <input required="true" class="input" type="password" name="senha" id="senha" placeholder="Senha" v-model="senha">
+              <input class="login-button" type="submit" value="Criar">
             </form>
         </div>
     </main>
@@ -25,25 +34,57 @@
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import { ref } from "vue";
+import axios from "axios";
+import { URL_BASE } from "@/utils/utils.ts"
 import { useRouter } from "vue-router";
-import { useAuthStore } from "../store/auth";
 
 export default {
     setup() {
-        const router = useRouter();
         const login = ref("");
         const senha = ref("");
-        const authStore = useAuthStore();
+        const nomeCompleto = ref("");
+        const dataNascimento = ref("");
+        const genero = ref("MASCULINO");
+        const telefone = ref("");
+        const error = ref(false);
+        const sucess = ref(false);
+        const router = useRouter();
 
-        const efetuarLogin = async () => {
-          await authStore.auth(login.value, senha.value);
+        const criarConta = () => {
+            const user = {
+                login: login.value,
+                senha: senha.value,
+                nomeCompleto: nomeCompleto.value,
+                dataNascimento: dataNascimento.value,
+                genero: genero.value,
+                telefone: telefone.value,
+                admin: false
+            }
+
+            axios.post(URL_BASE + "user/register", user)
+              .then(() => {
+                console.log("Deu certo");
+                sucess.value = true;
+                setTimeout(() => {
+                  router.push('/login');
+                }, 5000);
+              })
+              .catch((erro) => {
+                console.log(erro);
+                error.value = true;
+              })
         }
 
         return {
             login,
             senha,
-            router,
-            efetuarLogin
+            nomeCompleto,
+            dataNascimento,
+            genero,
+            telefone,
+            error,
+            sucess,
+            criarConta
         };
     },
     components: {
@@ -57,6 +98,7 @@ export default {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -107,18 +149,6 @@ main {
 .form .input:focus {
   outline: none;
   border-inline: 2px solid #12B1D1;
-}
-
-.form .forgot-password {
-  display: block;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.form .forgot-password a {
-  font-size: 11px;
-  color: #0099ff;
-  text-decoration: none;
 }
 
 .form .login-button {
@@ -201,6 +231,52 @@ main {
   text-decoration: none;
   color: #0099ff;
   font-size: 9px;
+}
+
+.select {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.sucess {
+  background-color: green;
+  color: white;
+  margin: auto;
+  max-width: 60%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  margin: auto;
+  max-width: 60%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.containerTitle {
+  width: 100vw;
+  text-align: center;
+  padding: 20px;
 }
 
 </style>
