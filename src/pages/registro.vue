@@ -8,9 +8,16 @@
                 Crie uma conta
             </div>
             <form class="form" @submit.prevent="criarConta">
-                <input required="true" class="input" type="email" name="login" id="login" placeholder="E-mail" v-model="login">
-                <input required="true" class="input" type="password" name="senha" id="senha" placeholder="Senha" v-model="senha">
-                <input class="login-button" type="submit" value="Criar">
+              <input required="true" class="input" type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome completo" v-model="nomeCompleto">
+              <select class="select input" name="genero" v-model="genero" required>
+                <option value="MASCULINO">MASCULINO</option>
+                <option value="FEMININO" selected>FEMININO</option>
+              </select>
+              <input required="true" class="input" type="tel" name="telefone" id="telefone" placeholder="Telefone" v-model="telefone">
+              <input required="true" class="input" type="date" name="dataNascimento" id="dataNascimento" placeholder="Senha" v-model="dataNascimento">
+              <input required="true" class="input" type="email" name="login" id="login" placeholder="E-mail" v-model="login">
+              <input required="true" class="input" type="password" name="senha" id="senha" placeholder="Senha" v-model="senha">
+              <input class="login-button" type="submit" value="Criar">
             </form>
         </div>
     </main>
@@ -31,12 +38,20 @@ export default {
     setup() {
         const login = ref("");
         const senha = ref("");
+        const nomeCompleto = ref("");
+        const dataNascimento = ref("");
+        const genero = ref("MASCULINO");
+        const telefone = ref("");
         const router = useRouter();
 
         const criarConta = () => {
             const user = {
                 login: login.value,
                 senha: senha.value,
+                nomeCompleto: nomeCompleto.value,
+                dataNascimento: dataNascimento.value,
+                genero: genero.value,
+                telefone: telefone.value,
                 admin: false
             }
 
@@ -53,6 +68,10 @@ export default {
         return {
             login,
             senha,
+            nomeCompleto,
+            dataNascimento,
+            genero,
+            telefone,
             criarConta
         };
     },
@@ -199,6 +218,18 @@ main {
   text-decoration: none;
   color: #0099ff;
   font-size: 9px;
+}
+
+.select {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 6px;
 }
 
 </style>

@@ -6,13 +6,13 @@
             </h1>
         </div>
         <div class="container-links">
-            <router-link to="/admin/cadastro/aula" v-if="admin == 'true'">
+            <router-link to="/admin/cadastro/aula" class="linkNavbar" v-if="admin == 'true'">
                 CADASTRAR AULA
             </router-link>
-            <router-link to="/roadmap" v-if="logado">
+            <router-link to="/roadmap" class="linkNavbar" v-if="logado">
                 ROADMAP
             </router-link>
-            <router-link to="/cursos" v-if="logado">
+            <router-link to="/cursos" class="linkNavbar" v-if="logado">
                 CURSOS
             </router-link>
             <router-link to="/login" class="entrar" v-if="!logado">
@@ -98,7 +98,8 @@ nav {
     font-weight: 800;
 }
 
-.entrar:hover {
+.entrar:hover,
+.linkNavbar:hover {
     color: #ff0000;
 }
 
