@@ -25,16 +25,12 @@
                 </li>
                 <li>
                     <i class="pi pi-link" style="font-size: 1.5rem; color: #9A653A"></i>
-                    <router-link to="/roadmap">Referencias</router-link>
+                    <router-link to="/roadmap">Referências</router-link>
                 </li>
             </ul>
         </div>
         <div class="usuarioInfos">
             <ul>
-                <li>
-                    <i class="pi pi-user" style="font-size: 1.5rem; color: #A9D3D3"></i>
-                    <p>Andrew Silva</p>
-                </li>
                 <li>
                     <i class="pi pi-gauge" style="font-size: 1.5rem; color: #A9D3D3"></i>
                     <p>Aluno <strong class="level">{{ level ? level : "Sem nível" }}</strong></p>
@@ -53,7 +49,8 @@ import { URL_BASE } from '@/utils/utils';
 export default {
     setup() {
         const level = ref("");
-        
+        const nome = ref(localStorage.getItem("nome")?.split(' ')[0] || "");
+
         const levelStudent = () => {
             const email = localStorage.getItem("email");
             const token = localStorage.getItem("Token");
@@ -75,8 +72,8 @@ export default {
 
         return {
             level,
+            nome
         }
-
     }
 }
 </script>

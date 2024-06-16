@@ -7,6 +7,8 @@ export const useAuthStore = defineStore("users", {
   state: () => ({
     isAuthenticated: false,
     isAdmin: false,
+    login: "",
+    nomeCompleto: "",
   }),
   getters: {
     getIsAuthenticated(state: any) {
@@ -47,11 +49,16 @@ export const useAuthStore = defineStore("users", {
 
       try {
         const response = await axios.get(
-          URL_BASE + `login/user/admin?login=${email}`,
+          URL_BASE + `login/user?login=${email}`,
           { headers }
         );
         this.isAdmin = response.data.admin;
+        this.login = response.data.login;
+        this.nomeCompleto = response.data.nomeCompleto;
+        console.log(response.data)
         localStorage.setItem("admin", this.isAdmin);
+        localStorage.setItem("nome", this.nomeCompleto);
+        localStorage.setItem("login", this.login);
         if(this.isAdmin === true) {
           return true;
         }
