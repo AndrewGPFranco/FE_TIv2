@@ -280,7 +280,9 @@ main {
 }
 
 footer {
-  margin-top: 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
 
 </style>
