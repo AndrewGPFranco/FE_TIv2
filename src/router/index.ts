@@ -5,7 +5,6 @@ import loginVue from "@/pages/login.vue";
 import registroVue from "@/pages/registro.vue";
 import roadmapVue from "@/pages/roadmap.vue";
 import cursosVue from "@/pages/cursos.vue";
-import matriculaVue from "@/pages/matricula.vue";
 import CadastrarAula from "@/pages/cadastrarAula.vue";
 
 const router = createRouter({
