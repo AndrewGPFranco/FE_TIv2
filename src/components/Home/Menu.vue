@@ -25,16 +25,12 @@
                 </li>
                 <li>
                     <i class="pi pi-link" style="font-size: 1.5rem; color: #9A653A"></i>
-                    <router-link to="/roadmap">Referencias</router-link>
+                    <router-link to="/roadmap">Referências</router-link>
                 </li>
             </ul>
         </div>
         <div class="usuarioInfos">
             <ul>
-                <li>
-                    <i class="pi pi-user" style="font-size: 1.5rem; color: #A9D3D3"></i>
-                    <p>Andrew Silva</p>
-                </li>
                 <li>
                     <i class="pi pi-gauge" style="font-size: 1.5rem; color: #A9D3D3"></i>
                     <p>Aluno <strong class="level">{{ level ? level : "Sem nível" }}</strong></p>
@@ -46,37 +42,13 @@
 
 <script lang="ts">
 
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
-import { URL_BASE } from '@/utils/utils';
-
 export default {
     setup() {
-        const level = ref("");
-        
-        const levelStudent = () => {
-            const email = localStorage.getItem("email");
-            const token = localStorage.getItem("Token");
-            const headers = {
-                Authorization: `Bearer ${token}`,
-            };
-            axios.get(URL_BASE + `aluno/findbyemail?email=${email}`, { headers })
-                .then((response) => {
-                    level.value = response.data["Aluno encontrado:"].nivel;
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
-
-        onMounted(() => {
-            levelStudent();
-        })
+        const level = localStorage.getItem("nivel");
 
         return {
-            level,
+            level
         }
-
     }
 }
 </script>

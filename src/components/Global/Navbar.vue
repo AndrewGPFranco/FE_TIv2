@@ -19,8 +19,12 @@
                 ENTRAR
             </router-link>
             <button v-if="!logado">
-                <router-link to="matricula">Matricule-Se</router-link>
+                <router-link to="registro">Matricule-Se</router-link>
             </button>
+            <p class="username" v-if="logado">
+                <i class="pi pi-user" style="font-size: 1.5rem; color: #A9D3D3"></i>
+                {{ nome }}
+            </p>
             <button v-if="logado" @click="sairDaConta">
                 SAIR
             </button>
@@ -37,6 +41,7 @@ export default {
         const router = useRouter();
         const logado = ref(false);
         const admin = localStorage.getItem("admin");
+        const nome = ref(localStorage.getItem("nome")?.split(' ')[0] || "");
 
         const verificarToken = () => {
             const token = localStorage.getItem("Token");
@@ -49,6 +54,8 @@ export default {
             localStorage.removeItem("Token");
             localStorage.removeItem("email");
             localStorage.removeItem("admin");
+            localStorage.removeItem("nome");
+            localStorage.removeItem("login");
             router.push('/login');
         }
 
@@ -58,6 +65,7 @@ export default {
             logado,
             sairDaConta,
             admin,
+            nome
         };
     }
 }
@@ -133,6 +141,15 @@ nav {
 }
 
 span {
+    color: var(--titulo-color);
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: large;
+    font-weight: 800;
     color: var(--titulo-color);
 }
 </style>

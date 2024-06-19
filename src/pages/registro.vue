@@ -58,7 +58,8 @@ export default {
                 dataNascimento: dataNascimento.value,
                 genero: genero.value,
                 telefone: telefone.value,
-                admin: false
+                admin: false,
+                nivel: 0
             }
 
             axios.post(URL_BASE + "user/register", user)
@@ -101,7 +102,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .container {
@@ -277,6 +277,10 @@ main {
   width: 100vw;
   text-align: center;
   padding: 20px;
+}
+
+footer {
+  margin-top: 30px;
 }
 
 </style>
