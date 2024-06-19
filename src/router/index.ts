@@ -48,12 +48,6 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
-      path: "/matricula",
-      name: "matricula",
-      component: matriculaVue,
-      meta: { requiresAuth: false },
-    },
-    {
       path: "/admin/cadastro/aula",
       name: "cadastrarAula",
       component: CadastrarAula,

@@ -9,6 +9,7 @@ export const useAuthStore = defineStore("users", {
     isAdmin: false,
     login: "",
     nomeCompleto: "",
+    nivel: ""
   }),
   getters: {
     getIsAuthenticated(state: any) {
@@ -28,9 +29,7 @@ export const useAuthStore = defineStore("users", {
         .post(URL_BASE + "login", dados)
         .then((response) => {
             const Token = response.data.token;
-            const email = response.data.login;
             localStorage.setItem("Token", Token);
-            localStorage.setItem("email", email);
             this.isAuthenticated = true;
             this.administrador(login);
             router.push({ name: "dashboard" });
@@ -55,15 +54,16 @@ export const useAuthStore = defineStore("users", {
         this.isAdmin = response.data.admin;
         this.login = response.data.login;
         this.nomeCompleto = response.data.nomeCompleto;
-        console.log(response.data)
+        this.nivel = response.data.nivel;
         localStorage.setItem("admin", this.isAdmin);
         localStorage.setItem("nome", this.nomeCompleto);
         localStorage.setItem("login", this.login);
+        localStorage.setItem("nivel", this.nivel);
         if(this.isAdmin === true) {
           return true;
         }
       } catch (error) {
-        console.error("Erro ao obter dados:", error);
+        console.error("Erro ao obter dados de administrador");
       }
     }
   },

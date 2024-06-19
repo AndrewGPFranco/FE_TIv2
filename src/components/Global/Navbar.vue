@@ -19,9 +19,9 @@
                 ENTRAR
             </router-link>
             <button v-if="!logado">
-                <router-link to="matricula">Matricule-Se</router-link>
+                <router-link to="registro">Matricule-Se</router-link>
             </button>
-            <p class="username">
+            <p class="username" v-if="logado">
                 <i class="pi pi-user" style="font-size: 1.5rem; color: #A9D3D3"></i>
                 {{ nome }}
             </p>
@@ -150,5 +150,6 @@ span {
     gap: 10px;
     font-size: large;
     font-weight: 800;
+    color: var(--titulo-color);
 }
 </style>

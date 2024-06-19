@@ -42,37 +42,12 @@
 
 <script lang="ts">
 
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
-import { URL_BASE } from '@/utils/utils';
-
 export default {
     setup() {
-        const level = ref("");
-        const nome = ref(localStorage.getItem("nome")?.split(' ')[0] || "");
-
-        const levelStudent = () => {
-            const email = localStorage.getItem("email");
-            const token = localStorage.getItem("Token");
-            const headers = {
-                Authorization: `Bearer ${token}`,
-            };
-            axios.get(URL_BASE + `aluno/findbyemail?email=${email}`, { headers })
-                .then((response) => {
-                    level.value = response.data["Aluno encontrado:"].nivel;
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
-
-        onMounted(() => {
-            levelStudent();
-        })
+        const level = localStorage.getItem("nivel");
 
         return {
-            level,
-            nome
+            level
         }
     }
 }
