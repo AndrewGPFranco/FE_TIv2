@@ -257,6 +257,7 @@ export default {
 .container {
     padding: 10px;
     background-color: #0B0B0B;
+    height: 100vh;
 }
 
 .containerTitle {

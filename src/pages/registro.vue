@@ -64,14 +64,12 @@ export default {
 
             axios.post(URL_BASE + "user/register", user)
               .then(() => {
-                console.log("Deu certo");
                 sucess.value = true;
                 setTimeout(() => {
                   router.push('/login');
                 }, 5000);
               })
               .catch((erro) => {
-                console.log(erro);
                 error.value = true;
               })
         }

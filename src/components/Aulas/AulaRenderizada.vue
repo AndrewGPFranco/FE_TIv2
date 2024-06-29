@@ -10,7 +10,7 @@
         <div class="containerAula">
             <div class="cardAula" v-for="aula in dados" :key="aula.id">
                 <div>
-                    <img :src="aula.imagem" alt="Thumbnail da Aula">
+                    <img :src="aula.imagem ? aula.imagem : 'carregando'" alt="Thumbnail da Aula">
                     <p>{{ aula.titulo }}</p>
                 </div>
             </div>

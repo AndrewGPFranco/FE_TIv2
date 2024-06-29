@@ -2,7 +2,7 @@
     <header>
         <Navbar />
     </header>
-    <div>
+    <div class="main">
         <Categorias />
         <AulaRenderizada />
     </div>
