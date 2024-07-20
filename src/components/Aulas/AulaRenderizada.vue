@@ -12,6 +12,7 @@
                 <div>
                     <img :src="aula.imagem ? aula.imagem : 'carregando'" alt="Thumbnail da Aula">
                     <p>{{ aula.titulo }}</p>
+                    <router-link :to="`/aula/${tech}/${curso}/${id}`">Assistir</router-link>
                 </div>
             </div>
         </div>
@@ -34,6 +35,9 @@ export default {
         return {
             dados: [] as Aula[],
             name: "Aulas",
+            tech: this.$route.params.tech,
+            curso: "",
+            id: ""
         };
     },
     methods: {
@@ -49,13 +53,15 @@ export default {
                 .then((response) => {
                     if (response.status === 200) {
                         this.dados = response.data;
+                        this.curso = response.data[0].curso.replace(/\s+/g, '');
+                        this.id = response.data[0].id;
                     }
                     else {
                         console.error('Erro na requisição:', response.status);
                     }
                 })
-                .catch((error) => {
-                    console.error('Erro ao obter dados:', error);
+                .catch(() => {
+                    console.error('Erro ao obter dados das aulas!');
                 });
         }
     },
