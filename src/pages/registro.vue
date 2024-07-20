@@ -69,7 +69,7 @@ export default {
                   router.push('/login');
                 }, 5000);
               })
-              .catch((erro) => {
+              .catch(() => {
                 error.value = true;
               })
         }
