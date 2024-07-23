@@ -6,6 +6,7 @@ import registroVue from "@/pages/registro.vue";
 import roadmapVue from "@/pages/roadmap.vue";
 import cursosVue from "@/pages/cursos.vue";
 import CadastrarAula from "@/pages/cadastrarAula.vue";
+import Aula from "@/pages/aula.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,6 +53,12 @@ const router = createRouter({
       component: CadastrarAula,
       meta: { requiresAuth: true },
     },
+    {
+      path: "/aula/:tech/:curso/:id",
+      name: "visualizarAula",
+      component: Aula,
+      meta: { requiresAuth: true }
+    }
   ],
 });
 

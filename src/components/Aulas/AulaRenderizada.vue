@@ -12,6 +12,7 @@
                 <div>
                     <img :src="aula.imagem ? aula.imagem : 'carregando'" alt="Thumbnail da Aula">
                     <p>{{ aula.titulo }}</p>
+                    <router-link :to="`/aula/${tech}/${curso}/${id}`">Assistir</router-link>
                 </div>
             </div>
         </div>
@@ -22,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
+import { api } from "@/config/instanceAxios";
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import Categorias from "@/components/Inicio/Categorias.vue";
@@ -34,6 +35,9 @@ export default {
         return {
             dados: [] as Aula[],
             name: "Aulas",
+            tech: this.$route.params.tech,
+            curso: "",
+            id: ""
         };
     },
     methods: {
@@ -45,17 +49,19 @@ export default {
             // @ts-ignore
             const tech = this.$route.params.tech.toUpperCase();
 
-            axios.get(URL_BASE + "aulas/tecnologia/" + tech, { headers })
+            api.get(URL_BASE + "aulas/tecnologia/" + tech, { headers })
                 .then((response) => {
                     if (response.status === 200) {
                         this.dados = response.data;
+                        this.curso = response.data[0].curso.replace(/\s+/g, '');
+                        this.id = response.data[0].id;
                     }
                     else {
                         console.error('Erro na requisição:', response.status);
                     }
                 })
-                .catch((error) => {
-                    console.error('Erro ao obter dados:', error);
+                .catch(() => {
+                    console.error('Erro ao obter dados das aulas!');
                 });
         }
     },
