@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import { URL_BASE } from '@/utils/utils';
+import { api } from '@/config/instanceAxios';
 
 export default {
     name: "Aula",
@@ -24,7 +24,7 @@ export default {
             const headers = {
                 'Authorization': `Bearer ${token}`,
             };
-            axios.get(URL_BASE + "dados/aula/5", {headers})
+            api.get(URL_BASE + "dados/aula/5", {headers})
                 .then((response) => {
                     this.aula = response.data["Aula Encontrada:"];
                 })

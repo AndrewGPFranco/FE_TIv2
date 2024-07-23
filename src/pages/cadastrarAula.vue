@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { api } from "@/config/instanceAxios";
 import Navbar from "@/components/Global/Navbar.vue"
 import Rodape from "@/components/Global/Rodape.vue"
 import { URL_BASE } from "@/utils/utils";
@@ -142,7 +142,7 @@ export default {
                 'Authorization': `Bearer ${token}`,
             };
 
-            axios.post(URL_BASE + "cadastro/aula", dados, { headers })
+            api.post(URL_BASE + "cadastro/aula", dados, { headers })
                 .then((response) => {
                     this.titulo = '';
                     this.descricao = '';

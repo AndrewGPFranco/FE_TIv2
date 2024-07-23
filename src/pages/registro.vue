@@ -34,7 +34,7 @@
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import { ref } from "vue";
-import axios from "axios";
+import { api } from "@/config/instanceAxios";
 import { URL_BASE } from "@/utils/utils.ts"
 import { useRouter } from "vue-router";
 
@@ -62,7 +62,7 @@ export default {
                 nivel: 0
             }
 
-            axios.post(URL_BASE + "user/register", user)
+            api.post(URL_BASE + "user/register", user)
               .then(() => {
                 sucess.value = true;
                 setTimeout(() => {

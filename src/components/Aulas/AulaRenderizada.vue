@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
+import { api } from "@/config/instanceAxios";
 import Navbar from "@/components/Global/Navbar.vue";
 import Rodape from "@/components/Global/Rodape.vue";
 import Categorias from "@/components/Inicio/Categorias.vue";
@@ -49,7 +49,7 @@ export default {
             // @ts-ignore
             const tech = this.$route.params.tech.toUpperCase();
 
-            axios.get(URL_BASE + "aulas/tecnologia/" + tech, { headers })
+            api.get(URL_BASE + "aulas/tecnologia/" + tech, { headers })
                 .then((response) => {
                     if (response.status === 200) {
                         this.dados = response.data;

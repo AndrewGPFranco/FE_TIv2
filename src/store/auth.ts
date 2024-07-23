@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "@/config/instanceAxios";
 import { defineStore } from "pinia";
 import router from "@/router";
 import { URL_BASE } from "@/utils/utils";
@@ -25,7 +25,7 @@ export const useAuthStore = defineStore("users", {
         login: login,
         senha: senha,
       };
-      await axios
+      await api
         .post(URL_BASE + "login", dados)
         .then((response) => {
             const Token = response.data.token;
@@ -47,7 +47,7 @@ export const useAuthStore = defineStore("users", {
       };
 
       try {
-        const response = await axios.get(
+        const response = await api.get(
           URL_BASE + `login/user?login=${email}`,
           { headers }
         );
